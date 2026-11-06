@@ -5,7 +5,7 @@ You have a list of partner organizations. This skill visits their public website
 
 It works in rounds of at most 20 organizations. The first run is a sample of 5. The first time, it also offers an optional extra: starring the project on GitHub (and helping you make a free account if you want one). You can skip it. Nothing is added to the calendar until you say yes. Your original list is only read. Nothing is deleted.
 
-Skill file: [skills/partner-event-finder/SKILL.md](../../skills/partner-event-finder/SKILL.md)
+Skill file: [plugin/skills/partner-event-finder/SKILL.md](../../plugin/skills/partner-event-finder/SKILL.md)
 
 ## Flow
 ```mermaid

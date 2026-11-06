@@ -2,7 +2,7 @@
 name: share-feedback
 description: Helps someone report a problem, suggest an improvement or request a new feature for Tejit's Non Profit Tools, and files it for the maintainer once they approve. Use when someone says "suggest an improvement", "report a problem", "something went wrong", "share feedback", "request a feature", "this didn't work" or "I have an idea for the tools".
 metadata:
-  version: 0.1.0
+  version: 0.1.1
   short_description: Reports a problem or shares an idea so the tools can get better
   connectors: GitHub (optional), Gmail (optional)
 ---

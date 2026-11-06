@@ -5,7 +5,7 @@
   "plugins": [
     {
       "name": "tejit-np-plugin",
-      "source": "./",
+      "source": "./plugin",
       "description": "Tools for nonprofits: guided helpers that take repetitive work off your team's plate. Includes the Partner Event Finder.",
       "category": "productivity",
       "tags": ["nonprofit", "events", "fundraising", "google-workspace"]

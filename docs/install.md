@@ -6,7 +6,7 @@ After installing, start a new chat and say **"Tejit's non profit tools"**.
 
 ## What was tested
 - Tested: Claude Code and GitHub Copilot CLI installs.
-- Gemini CLI 0.67.0: `gemini extensions validate .` and an install from a local folder worked. Installing from the GitHub address was not tried.
+- Gemini CLI 0.67.0: `gemini extensions validate plugin` worked. Installing from a local folder and from the GitHub address was not tested after the plugin moved into `plugin/`.
 - Not tested by us: Claude website or desktop, ChatGPT, Codex, VS Code. These steps come from each vendor's documentation and may change.
 
 ## Claude website or desktop app
@@ -47,9 +47,10 @@ In VS Code, use **Add Marketplace** in Agent Customizations.
 
 ## Gemini CLI
 ```
-gemini extensions install https://github.com/tejitpabari99/tejit-np-plugin --auto-update
+git clone https://github.com/tejitpabari99/tejit-np-plugin
+gemini extensions install ./tejit-np-plugin/plugin
 ```
-Update later with `gemini extensions update tejit-np-plugin`.
+Gemini CLI can only install straight from a GitHub address when the manifest is at the top of the repository, and this plugin lives in the `plugin/` folder, so it is installed from the downloaded folder. `--auto-update` does not apply to a local folder. To update, run `git pull` in `tejit-np-plugin`, then `gemini extensions update tejit-np-plugin`.
 
 Note: Google has replaced Gemini CLI with Antigravity CLI for unpaid and Google One users. Gemini CLI still applies to the accounts Google keeps it for.
 

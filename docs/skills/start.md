@@ -3,7 +3,7 @@
 ## What it does
 The friendly front door. It explains in plain words what a plugin and a skill are, shows where the plugin came from, lists the skills, and hands off to the one you pick. After you agree to the skill's access step, it saves a small note in Google Drive recording where the plugin came from.
 
-Skill file: [skills/start/SKILL.md](../../skills/start/SKILL.md)
+Skill file: [plugin/skills/start/SKILL.md](../../plugin/skills/start/SKILL.md)
 
 ## Flow
 ```mermaid

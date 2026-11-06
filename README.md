@@ -1,4 +1,4 @@
-<p align="center"><img src=".claude-plugin/icon.png" alt="Tejit's Non Profit Tools icon" width="120"></p>
+<p align="center"><img src="plugin/.claude-plugin/icon.png" alt="Tejit's Non Profit Tools icon" width="120"></p>
 
 # Tejit's Non Profit Tools
 
@@ -15,6 +15,6 @@ Nonprofit staff and volunteers who are not technical. Every step is explained in
 ## Learn more
 - [How to install it](docs/install.md)
 - [All documentation](docs/README.md)
-- [Changelog](CHANGELOG.md)
+- [Changelog](plugin/CHANGELOG.md)
 
 License: [MIT](LICENSE)
