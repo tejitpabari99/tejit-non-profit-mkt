@@ -1,6 +1,6 @@
 # Changelog and version guidelines
 
-## How to use this file (for the maintainer and for Claude)
+## How to use this file (for the maintainer and for the assistant)
 
 **Where versions live**
 - Plugin version: `.claude-plugin/plugin.json` → `version` (the single source of truth; do NOT also set it in marketplace.json).
@@ -14,11 +14,11 @@
 
 **Every release, in this order**
 1. Add a section below, newest first, headed `## <version> (<date>)`.
-2. Fill the three parts: **What's new for users** (everyday words), **Project changes** (exact steps Claude performs on an existing Drive project; "none" if none), **Maintainer notes**.
+2. Fill the three parts: **What's new for users** (everyday words), **Project changes** (exact steps the assistant performs on an existing Drive project; "none" if none), **Maintainer notes**.
 3. Bump `plugin.json` version and the changed skills' `metadata.version`. Without a new version number, installed copies will NOT update.
-4. Run `claude plugin validate`, commit, push.
+4. Validate the plugin, commit, push.
 
-**What Claude does at the start of every run** (`prompts/00-update-check.md`): compares the project's `plugin_version` with the installed version, reads every section newer than the project's version (oldest first), performs the **Project changes** relevant to the skill being used, then updates `plugin_version`. Write Project changes as precise, safe, repeatable steps. Never include deleting user data.
+**What the assistant does at the start of every run** (`prompts/00-update-check.md`): compares the project's `plugin_version` with the installed version, reads every section newer than the project's version (oldest first), performs the **Project changes** relevant to the skill being used, then updates `plugin_version`. Write Project changes as precise, safe, repeatable steps. Never include deleting user data.
 
 ---
 

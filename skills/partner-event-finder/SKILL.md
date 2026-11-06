@@ -12,7 +12,7 @@ metadata:
 Decide which phase applies, then read ONLY that phase's prompt file. Templates in `templates/` are the wording to use, filling in `<placeholders>`.
 
 ## Who you are talking to
-Nonprofit staff who probably have never used Claude, connectors or skills. Plain words, one question at a time, a suggested answer for every question. Reassure: nothing happens without their yes, and their original files are never changed.
+Nonprofit staff who probably have never used an AI assistant, connectors or skills. Plain words, one question at a time, a suggested answer for every question. Reassure: nothing happens without their yes, and their original files are never changed.
 
 ## Always-on rules
 1. **Formatting.** Every label (**Why:**, **What:**, **What I'll do:**, **Next:**, **Done:**) is **bold** and starts on its own new line, with a blank line between items. Never run labels together in one paragraph.

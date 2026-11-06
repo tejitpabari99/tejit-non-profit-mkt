@@ -9,9 +9,9 @@ For each missing connection, send:
 > **Is it safe?** You stay in control. You sign in with your own Google account, you can switch it off any time, and I will tell you exactly what I'll use it for before I use it.
 >
 > **How to turn it on:**
-> 1. In Claude, open **Settings**, then **Connectors** (menu names can differ slightly; look for "Connectors" or "Integrations").
+> 1. In your AI assistant, open its **Settings** and look for **Connectors**, **Integrations** or **Apps** (the name differs from tool to tool).
 > 2. Find **<connection name>** and click **Connect**. Sign in with the Google account your team uses.
-> 3. Back in this chat, open the **+** menu near the message box and make sure **<connection name>** is switched on.
+> 3. Back in this chat, make sure **<connection name>** is switched on for this conversation (often in a menu or **+** button near the message box).
 >
 > Tell me when you've done it, or say "I'm stuck" and tell me what you see on your screen. I'll help.
 

@@ -12,8 +12,13 @@ Never show the person version numbers, file names, or technical detail. High lev
 ## 2. Is there a newer plugin version?
 Try to read the newest `.claude-plugin/plugin.json` at the root of the source and compare its `version` with the installed one. If it cannot be read, skip quietly.
 - **Newer exists:** tell the person once, in plain words: "A newer version of this tool is available." Then explain how to get it:
-  - In Claude Code: type `/plugin`, open **Marketplaces**, pick `tejit-np-plugin` (the marketplace has the same name as the plugin), choose **Update marketplace** (or turn on **Enable auto-update** so it never needs doing again).
-  - In the Claude app: open the plugin's page in your plugins list and update it there.
+  Tell them to use their tool's plugin update option. Short examples:
+  - Claude Code: type `/plugin`, open **Marketplaces**, pick `tejit-np-plugin` (the marketplace has the same name as the plugin), choose **Update marketplace** (or turn on **Enable auto-update** so it never needs doing again).
+  - Claude app: open the plugin's page in your plugins list and update it there.
+  - GitHub Copilot: run `copilot plugin update tejit-np-plugin`.
+  - Gemini CLI: run `gemini extensions update tejit-np-plugin`.
+  - Installed from a ZIP file: download the newest ZIP from the plugin's GitHub page and upload it again.
+  If their tool is not listed, tell them to look for an update option on the plugin's page.
   Ask whether they want to update now and come back, or continue with the current version. Do not block them: if they continue, carry on with the installed version. A plugin cannot replace its own files, so never claim you updated it.
 - **Same version:** say nothing.
 

@@ -1,6 +1,6 @@
 {
   "name": "tejit-np-plugin",
-  "description": "Tejit's Non Profit Tools: small, guided Claude helpers for nonprofits",
+  "description": "Tejit's Non Profit Tools: small, guided helpers for nonprofits",
   "owner": { "name": "Tejit Pabari", "url": "https://github.com/tejitpabari99" },
   "plugins": [
     {

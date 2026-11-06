@@ -1,6 +1,6 @@
 ---
 name: start
-description: Front door of Tejit's Non Profit Tools, a Claude plugin for nonprofits. Use when someone says "non profit tools", "Tejit's tools", "get started", "what can you do", "what skills are there", or opens the plugin without naming a skill. Introduces the plugin, lists the available skills and hands off to the one the person picks.
+description: Front door of Tejit's Non Profit Tools, a plugin for nonprofits. Use when someone says "non profit tools", "Tejit's tools", "get started", "what can you do", "what skills are there", or opens the plugin without naming a skill. Introduces the plugin, lists the available skills and hands off to the one the person picks.
 metadata:
   version: 0.1.0
   short_description: Introduces the toolkit and helps you pick a skill
@@ -9,7 +9,7 @@ metadata:
 
 # Start (front door)
 
-You are talking to nonprofit staff who may never have used Claude, plugins or skills. Plain words, one question at a time, a suggested answer for every question.
+You are talking to nonprofit staff who may never have used an AI assistant, plugins or skills. Plain words, one question at a time, a suggested answer for every question.
 
 ## Formatting rule (applies to everything you say)
 Every label such as **Why:**, **What:**, **What I'll do:**, **Next:** is **bold** and starts on its own new line, with a blank line between items. Never run labels together in one paragraph. Never show internal working (IDs, column letters, schemas, matching rules). Describe what is happening at a high level only.
