@@ -201,6 +201,12 @@ def check_feedback_form():
         err("feedback.yml does not apply the 'feedback' label")
 
 
+def check_feedback_email():
+    f = ROOT / "skills" / "share-feedback" / "SKILL.md"
+    if not f.is_file() or "tejitpabari99@gmail.com" not in f.read_text(encoding="utf-8"):
+        err("skills/share-feedback/SKILL.md must contain tejitpabari99@gmail.com (email route)")
+
+
 def check_links():
     link = re.compile(r"(?<!\!)\[[^\]]*\]\(([^)\s]+)\)|!\[[^\]]*\]\(([^)\s]+)\)|src=\"([^\"]+)\"")
     files = [ROOT / "README.md"] + sorted((ROOT / "docs").rglob("*.md"))
@@ -264,6 +270,7 @@ def main():
     check_skill_docs()
     check_neutral_wording()
     check_feedback_form()
+    check_feedback_email()
     check_links()
     if a.base and pj:
         check_base(a.base, pj)

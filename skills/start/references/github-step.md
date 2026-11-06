@@ -12,10 +12,10 @@ Check the root `metadata.txt` (`root-metadata.md`) for `github_step: done`, and 
 1. **Quietly check.** If a GitHub tool is loaded, or a signed-in `gh` command works, check whether the person is signed in. Say nothing technical about the check.
 2. **Signed in, or they say they have an account.** Go to the star prompt (step 5).
 3. **Cannot tell.** Ask: "**(optional)** Do you have a GitHub account?" Options: Yes / No / Skip. Suggest Skip if they seem unsure. Yes goes to step 5. No goes to step 4. Skip goes to step 6.
-4. **No account.** Say: "**(optional)** I recommend creating a free GitHub account to keep track of changes to this plugin, see new versions, and give feedback. It is optional and takes about a minute. Would you like to do that?"
+4. **No account.** Say: "**(optional)** I recommend creating a free GitHub account so you can track changes, update the package, and give feedback. It is optional and takes about a minute. Would you like to do that?"
    - Yes: follow `github-account-guide.md`, one step at a time, and wait until they say they are done. Then go to step 5.
    - No: reply warmly ("No problem at all, you can do it any time.") and go to step 6.
-5. **Star prompt.** Say: "**(optional)** Would you like to star this project on GitHub? It saves the project to your account so you can keep track of changes, new versions, and give feedback. Say yes and I'll do it, or skip it."
+5. **Star prompt.** Say: "**(optional)** Would you like to star this project on GitHub? It lets you track changes, update the package, and give feedback. Say yes and I'll do it, or skip it."
    - Yes, and you have a tool that can star: star `https://github.com/tejitpabari99/tejit-np-plugin`, then confirm it is done.
    - Yes, and you have no such tool: give the link `https://github.com/tejitpabari99/tejit-np-plugin` and say to click the **Star** button near the top right.
    - Skip or no: move on warmly.

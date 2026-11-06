@@ -33,7 +33,7 @@ First release of Tejit's Non Profit Tools.
 - Work is done in small rounds (at most 20 organizations at a time).
 - The tool checks for a newer version each time it starts and brings your project up to date.
 - An optional, one-time offer to star the project on GitHub, with a step-by-step guide to making a free account if you want one. You can skip it.
-- Share Feedback: report a problem or share an idea in a couple of minutes. You see the full message first, and nothing is sent without your yes.
+- Share Feedback: report a problem or share an idea in a couple of minutes. You see the full message first, and nothing is sent without your yes. If you have no GitHub account you can create one or send the feedback by email instead.
 
 **Project changes** (apply to projects created by test builds before 0.1.0, i.e. no `plugin_version` in their `metadata.txt`)
 1. In the project sheet's Organizations tab, if there is no **Description** column, insert one directly before **Website** (leave blank; it fills in as organizations are visited).
