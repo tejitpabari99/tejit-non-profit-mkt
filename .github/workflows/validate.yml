@@ -26,8 +26,27 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code@2.1.318
       - name: Validate plugin with Claude Code
         run: claude plugin validate .
-      - name: Compile script
-        run: python3 -m py_compile skills/partner-event-finder/scripts/dedupe_orgs.py
+      - name: Install Gemini CLI
+        run: npm install -g @google/gemini-cli@0.67.0
+      - name: Validate Gemini extension
+        run: gemini extensions validate .
+      - name: Compile scripts
+        run: python3 -m py_compile skills/partner-event-finder/scripts/dedupe_orgs.py scripts/build_zip.py
+      - name: Build ZIP and check its contents
+        run: |
+          python3 scripts/build_zip.py
+          python3 - <<'PY'
+          import glob, sys, zipfile
+          path = glob.glob("dist/tejit-np-plugin-*.zip")[0]
+          names = zipfile.ZipFile(path).namelist()
+          for need in ("skills/start/SKILL.md", ".claude-plugin/plugin.json", "gemini-extension.json"):
+              if need not in names:
+                  sys.exit(f"ZIP is missing {need}")
+          for bad in (".github/", "docs/"):
+              if any(n.startswith(bad) for n in names):
+                  sys.exit(f"ZIP must not contain {bad}")
+          print(f"ZIP OK: {len(names)} files")
+          PY
       - name: Run repo checks (pull request)
         if: github.event_name == 'pull_request'
         env:

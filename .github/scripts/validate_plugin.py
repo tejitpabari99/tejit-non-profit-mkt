@@ -3,6 +3,7 @@
 import argparse
 import json
 import re
+import struct
 import subprocess
 import sys
 from pathlib import Path
@@ -133,6 +134,74 @@ def check_old_names():
                 err(f"{rel}: contains old name or path {o!r}")
 
 
+def check_release_files(pj):
+    """License, Gemini manifest, icon."""
+    if pj.get("license") != "MIT":
+        err(f"plugin.json license is {pj.get('license')!r}, expected 'MIT'")
+    if not (ROOT / "LICENSE").is_file():
+        err("LICENSE file is missing")
+    gp = ROOT / "gemini-extension.json"
+    if not gp.is_file():
+        err("gemini-extension.json is missing")
+    else:
+        g = load_json(gp)
+        if g is not None:
+            for key in ("name", "version", "description"):
+                if g.get(key) != pj.get(key):
+                    err(f"gemini-extension.json {key} {g.get(key)!r} != plugin.json {pj.get(key)!r}")
+    ip = ROOT / ".claude-plugin" / "icon.png"
+    if not ip.is_file():
+        err(".claude-plugin/icon.png is missing")
+        return
+    head = ip.read_bytes()[:24]
+    if head[:8] != b"\x89PNG\r\n\x1a\n" or head[12:16] != b"IHDR":
+        err(".claude-plugin/icon.png is not a PNG")
+        return
+    w, h = struct.unpack(">II", head[16:24])
+    if w != h or not 512 <= w <= 2048:
+        err(f".claude-plugin/icon.png is {w}x{h}, must be square and 512 to 2048 px")
+
+
+def check_skill_docs():
+    for d in skill_dirs():
+        f = ROOT / "docs" / "skills" / f"{d.name}.md"
+        if not f.is_file():
+            err(f"docs/skills/{d.name}.md is missing")
+        elif "```mermaid" not in f.read_text(encoding="utf-8"):
+            err(f"docs/skills/{d.name}.md has no ```mermaid block")
+
+
+def check_neutral_wording():
+    allowed = {ROOT / "skills/partner-event-finder/prompts/00-update-check.md"}
+    targets = [ROOT / "CONNECTORS.md"]
+    for sub in ("skills", "guides"):
+        targets += [p for p in (ROOT / sub).rglob("*") if p.is_file()]
+    for f in sorted(targets):
+        if f in allowed:
+            continue
+        try:
+            text = f.read_text(encoding="utf-8")
+        except Exception:  # noqa: BLE001
+            continue
+        text = text.replace(".claude-plugin", "")
+        if re.search(r"\bClaude\b", text):
+            err(f"{f.relative_to(ROOT)}: uses the word 'Claude'; use 'your AI assistant' instead")
+
+
+def check_links():
+    link = re.compile(r"(?<!\!)\[[^\]]*\]\(([^)\s]+)\)|!\[[^\]]*\]\(([^)\s]+)\)|src=\"([^\"]+)\"")
+    files = [ROOT / "README.md"] + sorted((ROOT / "docs").rglob("*.md"))
+    for f in files:
+        text = re.sub(r"```.*?```", "", f.read_text(encoding="utf-8"), flags=re.S)
+        for m in link.finditer(text):
+            target = next(g for g in m.groups() if g)
+            if re.match(r"^(https?:|mailto:|#)", target):
+                continue
+            path = target.split("#")[0]
+            if path and not (f.parent / path).exists():
+                err(f"{f.relative_to(ROOT)}: broken link {target}")
+
+
 def check_base(base, pj):
     if git("rev-parse", "--verify", base).returncode != 0:
         err(f"--base ref {base!r} not found")
@@ -177,6 +246,11 @@ def main():
     check_skills()
     check_references()
     check_old_names()
+    if pj:
+        check_release_files(pj)
+    check_skill_docs()
+    check_neutral_wording()
+    check_links()
     if a.base and pj:
         check_base(a.base, pj)
     if errors:
