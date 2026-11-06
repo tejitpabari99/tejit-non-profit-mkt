@@ -4,7 +4,7 @@ description: Guided tool for nonprofits that finds where partner organizations a
 metadata:
   version: 0.1.0
   short_description: Finds partner fundraising events and adds them to a shared Google Calendar
-  connectors: Google Drive, Google Sheets, Google Calendar, web search and page reading
+  connectors: Google Drive, Google Sheets, Google Calendar, web search and page reading, GitHub (optional)
 ---
 
 # Partner Event Finder (router)
