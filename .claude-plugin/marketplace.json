@@ -1,0 +1,14 @@
+{
+  "name": "tejit-non-profit-marketplace",
+  "description": "Tejit's Non Profit Tools: small, guided Claude helpers for nonprofits",
+  "owner": { "name": "Tejit Pabari", "url": "https://github.com/tejitpabari99" },
+  "plugins": [
+    {
+      "name": "tejit-non-profit",
+      "source": "./plugins/tejit-non-profit",
+      "description": "Tools for nonprofits: guided helpers that take repetitive work off your team's plate. Includes the Partner Event Finder.",
+      "category": "productivity",
+      "tags": ["nonprofit", "events", "fundraising", "google-workspace"]
+    }
+  ]
+}
