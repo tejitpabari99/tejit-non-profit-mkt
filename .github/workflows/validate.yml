@@ -1,0 +1,38 @@
+name: Validate plugin
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code@2.1.318
+      - name: Validate plugin with Claude Code
+        run: claude plugin validate .
+      - name: Compile script
+        run: python3 -m py_compile skills/partner-event-finder/scripts/dedupe_orgs.py
+      - name: Run repo checks (pull request)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: python3 .github/scripts/validate_plugin.py --base "origin/${BASE_REF}"
+      - name: Run repo checks (push)
+        if: github.event_name == 'push'
+        run: python3 .github/scripts/validate_plugin.py
