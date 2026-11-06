@@ -1,7 +1,7 @@
 # Template: links (show every time)
 
 Folder (after it is created, when setup ends, or when you reuse an existing one):
-> **Your folder:** [tejit-non-profit-claude](https://drive.google.com/drive/folders/<folder_id>)
+> **Your folder:** [tejit-np-plugin](https://drive.google.com/drive/folders/<folder_id>)
 >
 > Inside it: `partner-event-finder`, then `<project name>`. Click to open it.
 

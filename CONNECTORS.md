@@ -8,7 +8,7 @@ Each skill only checks and asks for the connections it needs.
 | `partner-event-finder` | yes | yes | yes | yes |
 
 **What they are used for (Partner Event Finder)**
-- **Google Drive:** the `tejit-non-profit-claude` folder, small settings notes, finding your files.
+- **Google Drive:** the `tejit-np-plugin` folder, small settings notes, finding your files.
 - **Google Sheets:** reading your partner list (read only) and writing the new sheet this plugin creates.
 - **Google Calendar:** the separate calendar where events are kept.
 - **Web search and page reading:** reading partner websites.

@@ -3,7 +3,7 @@
 > **Everything is connected.** Before I do anything, here is exactly what I will use:
 >
 > **Google Drive:**
-> I will look for your partner list, and create a new folder called `tejit-non-profit-claude` for everything this tool makes.
+> I will look for your partner list, and create a new folder called `tejit-np-plugin` for everything this tool makes.
 >
 > **Google Sheets:**
 > I will read your partner list (I never change it) and create a new, separate sheet that I write to.

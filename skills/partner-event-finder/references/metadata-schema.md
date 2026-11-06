@@ -3,15 +3,15 @@
 Plain text file in the project folder, created by setup. Nobody needs to edit it. No passwords or secrets, only IDs and choices. Run history is in the sheet's Log tab.
 
 ```
-Partner Event Finder: project settings (tejit-non-profit plugin)
+Partner Event Finder: project settings (tejit-np-plugin plugin)
 schema_version: 3
 plugin_version: 0.1.0
 plugin_source: https://github.com/<owner>/<repo>
-plugin: tejit-non-profit
+plugin: tejit-np-plugin
 skill: partner-event-finder
 project_name: Example Partner Events
 created: 2026-01-01
-main_folder_name: tejit-non-profit-claude
+main_folder_name: tejit-np-plugin
 main_folder_id:
 skill_folder_id:
 project_folder_id:

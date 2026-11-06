@@ -6,7 +6,7 @@ Use `templates/step-explainers.md` before and after each step. Suggest an answer
 Check memory and Drive for earlier work (project folder, sheet, calendar, notes). Whatever you find and will reuse, call out explicitly with its clickable link (`templates/folder-and-sheet-links.md`, "I found this already set up") so they can open it themselves. Reuse it instead of recreating it.
 
 ## Step 1: project folder
-Explain, then create or reuse: `tejit-non-profit-claude` at the top of My Drive, inside it `partner-event-finder`, then the project folder. Say simply: "Next, we need to set up the project folder." Then ask: **"What should the project be called?"** with a suggestion based on the organization (for example `<organization>-partner-events`). Show the folder link.
+Explain, then create or reuse: `tejit-np-plugin` at the top of My Drive, inside it `partner-event-finder`, then the project folder. Say simply: "Next, we need to set up the project folder." Then ask: **"What should the project be called?"** with a suggestion based on the organization (for example `<organization>-partner-events`). Show the folder link.
 
 ## Step 2: partner list
 Explain. Search Drive for sheets mentioning partner, directory, hub or list; show top matches with last-modified dates; suggest the best one. READ ONLY. Internally find the real header row and tab (ask which tab only if several are plausible).
@@ -29,7 +29,7 @@ Send `templates/calendar-instructions.md`, then ask the calendar name (suggest P
 Tell them (no decision needed): events tracked are galas, auctions, walks/runs, social fundraisers, giving campaigns and community events; the window is the next 12 months; each round does at most 20 organizations; the first run is a sample of 5. Ask only "any change?".
 
 ## Step 7: save your choices
-Explain. Create `metadata.txt` in the project folder (plain text, no conversion to a Google file type) with the lines in `references/metadata-schema.md`, including `plugin_version`, `plugin_source`. Make sure the root `metadata.txt` also exists (`../../start/references/root-metadata.md`). Read both back. Ask memory to remember: "Partner Event Finder project <name>: Drive folder `tejit-non-profit-claude/partner-event-finder/<name>`, settings file `metadata.txt`." If memory is unavailable, say so; the skill finds the folder by search.
+Explain. Create `metadata.txt` in the project folder (plain text, no conversion to a Google file type) with the lines in `references/metadata-schema.md`, including `plugin_version`, `plugin_source`. Make sure the root `metadata.txt` also exists (`../../start/references/root-metadata.md`). Read both back. Ask memory to remember: "Partner Event Finder project <name>: Drive folder `tejit-np-plugin/partner-event-finder/<name>`, settings file `metadata.txt`." If memory is unavailable, say so; the skill finds the folder by search.
 
 ## Step 8: finish setup and first run
 Summarize in a few lines, show the folder and sheet links, log the run (`05-run-log.md`, phase `setup`). Ask: **"Shall we try a sample of 5 organizations now?"** If yes, go to `03-find-sources.md`.

@@ -18,5 +18,5 @@ Every label such as **Why:**, **What:**, **What I'll do:**, **Next:** is **bold*
 1. **Update check.** Follow `../partner-event-finder/prompts/00-update-check.md` first (quietly; it only speaks to the person when there is something to say).
 2. **Intro.** Send `references/intro.md`, filling the placeholders. Work out the plugin source as described there.
 3. **Skills list.** Show the skills from `references/skills-list.md` (or read each sibling skill's frontmatter: name plus `metadata.short_description`). Name and one-line description only, as a list. Never show versions.
-4. **Ask which skill** they want to set up. With one skill, suggest it. When they choose, hand off to that skill (for now `partner-event-finder`, starting at its `templates/skill-about.md` message).
+4. **Ask which skill** they want to set up. With one skill, suggest it. When they choose, hand off to that skill (for now `partner-event-finder`, starting at the message in `../partner-event-finder/templates/skill-about.md`).
 5. **Save the source** once they have said yes to the skill's access confirmation (that step covers Drive access): create or refresh the root `metadata.txt` as described in `references/root-metadata.md`.

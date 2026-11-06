@@ -36,7 +36,7 @@ First release of Tejit's Non Profit Tools.
 **Project changes** (apply to projects created by test builds before 0.1.0, i.e. no `plugin_version` in their `metadata.txt`)
 1. In the project sheet's Organizations tab, if there is no **Description** column, insert one directly before **Website** (leave blank; it fills in as organizations are visited).
 2. Fill **Website** from the original list where it is empty and a web address is known; never overwrite existing values.
-3. Make sure the root Drive folder `tejit-non-profit-claude` contains a `metadata.txt` recording the plugin source and version (create it if missing).
+3. Make sure the root Drive folder `tejit-np-plugin` contains a `metadata.txt` recording the plugin source and version (create it if missing).
 4. Add `plugin_version: 0.1.0` and `plugin_source` to the project `metadata.txt`.
 
 **Maintainer notes**

@@ -1,10 +1,10 @@
 {
-  "name": "tejit-non-profit",
+  "name": "tejit-np-plugin",
   "displayName": "Tejit's Non Profit Tools",
   "version": "0.1.0",
   "description": "Tools for nonprofits: small, guided helpers that take repetitive work off your team's plate. Currently includes the Partner Event Finder.",
   "author": { "name": "Tejit Pabari" },
-  "homepage": "https://github.com/tejitpabari99/tejit-non-profit-mkt",
-  "repository": "https://github.com/tejitpabari99/tejit-non-profit-mkt",
+  "homepage": "https://github.com/tejitpabari99/tejit-np-plugin",
+  "repository": "https://github.com/tejitpabari99/tejit-np-plugin",
   "keywords": ["nonprofit", "events", "fundraising", "google-calendar", "google-sheets"]
 }
