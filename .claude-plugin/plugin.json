@@ -2,6 +2,7 @@
   "name": "tejit-np-plugin",
   "displayName": "Tejit's Non Profit Tools",
   "version": "0.1.0",
+  "license": "MIT",
   "description": "Tools for nonprofits: small, guided helpers that take repetitive work off your team's plate. Currently includes the Partner Event Finder.",
   "author": { "name": "Tejit Pabari" },
   "homepage": "https://github.com/tejitpabari99/tejit-np-plugin",

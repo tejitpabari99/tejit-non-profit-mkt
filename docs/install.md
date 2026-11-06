@@ -6,7 +6,7 @@ After installing, start a new chat and say **"Tejit's non profit tools"**.
 
 ## What was tested
 - Tested: Claude Code and GitHub Copilot CLI installs.
-- Gemini CLI: see the note in its section.
+- Gemini CLI 0.67.0: `gemini extensions validate .` and an install from a local folder worked. Installing from the GitHub address was not tried.
 - Not tested by us: Claude website or desktop, ChatGPT, Codex, VS Code. These steps come from each vendor's documentation and may change.
 
 ## Claude website or desktop app
@@ -52,8 +52,6 @@ gemini extensions install https://github.com/tejitpabari99/tejit-np-plugin --aut
 Update later with `gemini extensions update tejit-np-plugin`.
 
 Note: Google has replaced Gemini CLI with Antigravity CLI for unpaid and Google One users. Gemini CLI still applies to the accounts Google keeps it for.
-
-GEMINI_TEST_NOTE
 
 ## Other tools
 Build a ZIP (see [releasing.md](releasing.md)) and upload it in the tool's plugin or skill upload screen.
