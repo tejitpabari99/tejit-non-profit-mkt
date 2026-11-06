@@ -13,6 +13,7 @@ On every pull request (`.github/workflows/validate.yml`):
 - Referenced files exist and relative links in `README.md` and `docs/` resolve.
 - `gemini-extension.json` matches `plugin.json` (name, version, description).
 - The license is MIT, `LICENSE` exists, and `.claude-plugin/icon.png` is a square PNG between 512 and 2048 pixels.
+- The feedback form `.github/ISSUE_TEMPLATE/feedback.yml` exists with its field ids and the `feedback` label.
 - Each skill has a page in `docs/skills/` with a Mermaid flow.
 - The plain word "Claude" is not used in `skills/`, `CONNECTORS.md` or `guides/` (except the update-check prompt).
 - When plugin files changed, the plugin version and each changed skill's version are higher than on `main`.

@@ -32,6 +32,8 @@ First release of Tejit's Non Profit Tools.
 - Each organization in your sheet gets a short description and a website as the tool visits it.
 - Work is done in small rounds (at most 20 organizations at a time).
 - The tool checks for a newer version each time it starts and brings your project up to date.
+- An optional, one-time offer to star the project on GitHub, with a step-by-step guide to making a free account if you want one. You can skip it.
+- Share Feedback: report a problem or share an idea in a couple of minutes. You see the full message first, and nothing is sent without your yes.
 
 **Project changes** (apply to projects created by test builds before 0.1.0, i.e. no `plugin_version` in their `metadata.txt`)
 1. In the project sheet's Organizations tab, if there is no **Description** column, insert one directly before **Website** (leave blank; it fills in as organizations are visited).
@@ -41,4 +43,6 @@ First release of Tejit's Non Profit Tools.
 
 **Maintainer notes**
 - Version kept at 0.1.0 because the plugin is not yet published.
-- Skills: `start` 0.1.0, `partner-event-finder` 0.1.0.
+- Skills: `start` 0.1.0, `partner-event-finder` 0.1.0, `share-feedback` 0.1.0.
+- Added the feedback form `.github/ISSUE_TEMPLATE/feedback.yml` and the `feedback` label. Root `metadata.txt` may now hold `github_step: done`.
+- The CI version-bump check does not apply to this change because `main` has no `plugin.json` yet.

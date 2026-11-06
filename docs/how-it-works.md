@@ -6,13 +6,15 @@ tejit-np-plugin/                   (repo root = the plugin)
 ├── .claude-plugin/                plugin.json, marketplace.json, icon.png
 ├── gemini-extension.json          manifest for Gemini CLI
 ├── skills/
-│   ├── start/                     welcome, skills list, source record
-│   └── partner-event-finder/      SKILL.md router, prompts/, templates/,
-│                                  references/, scripts/
+│   ├── start/                     welcome, skills list, source record,
+│   │                              optional GitHub step and account guide
+│   ├── partner-event-finder/      SKILL.md router, prompts/, templates/,
+│   │                              references/, scripts/
+│   └── share-feedback/            SKILL.md, report format
 ├── guides/                        short how-to pages for staff
 ├── docs/                          these docs
 ├── scripts/build_zip.py           builds an upload ZIP
-├── .github/                       CI checks
+├── .github/                       CI checks, ISSUE_TEMPLATE/feedback.yml
 ├── CHANGELOG.md, CONNECTORS.md, LICENSE, README.md
 ```
 The manifest lives in `.claude-plugin/` because Claude requires that folder. It is one copy, not a copy per tool. Other tools read the same `skills/` folder.

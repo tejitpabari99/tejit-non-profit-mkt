@@ -188,6 +188,19 @@ def check_neutral_wording():
             err(f"{f.relative_to(ROOT)}: uses the word 'Claude'; use 'your AI assistant' instead")
 
 
+def check_feedback_form():
+    f = ROOT / ".github" / "ISSUE_TEMPLATE" / "feedback.yml"
+    if not f.is_file():
+        err(".github/ISSUE_TEMPLATE/feedback.yml is missing")
+        return
+    text = f.read_text(encoding="utf-8")
+    for fid in ("type", "tool_goal", "details", "importance", "example", "contact", "version"):
+        if not re.search(r"^\s*id:\s*" + fid + r"\s*$", text, re.M):
+            err(f"feedback.yml is missing field id {fid!r}")
+    if not re.search(r"^labels:.*\bfeedback\b", text, re.M):
+        err("feedback.yml does not apply the 'feedback' label")
+
+
 def check_links():
     link = re.compile(r"(?<!\!)\[[^\]]*\]\(([^)\s]+)\)|!\[[^\]]*\]\(([^)\s]+)\)|src=\"([^\"]+)\"")
     files = [ROOT / "README.md"] + sorted((ROOT / "docs").rglob("*.md"))
@@ -250,6 +263,7 @@ def main():
         check_release_files(pj)
     check_skill_docs()
     check_neutral_wording()
+    check_feedback_form()
     check_links()
     if a.base and pj:
         check_base(a.base, pj)

@@ -10,6 +10,7 @@ Nonprofit staff and volunteers who are not technical. Every step is explained in
 ## Skills
 - **`start`**: Introduces the toolkit and helps you pick a skill.
 - **`partner-event-finder`**: Finds partner fundraising events and adds them to a shared Google Calendar.
+- **`share-feedback`**: Reports a problem or shares an idea so the tools can get better.
 
 ## Learn more
 - [How to install it](docs/install.md)

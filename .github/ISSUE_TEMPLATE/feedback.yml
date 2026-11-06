@@ -1,0 +1,50 @@
+name: Feedback
+description: Report a problem, suggest an improvement or request a new feature
+title: "[Feedback] "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping make these tools better. **This issue will be public, including your email.** Please do not include donor details or other private information.
+  - type: input
+    id: type
+    attributes:
+      label: Type
+      description: Something broke, could be better, or a new idea
+    validations:
+      required: true
+  - type: textarea
+    id: tool_goal
+    attributes:
+      label: Tool and goal
+      description: Which tool were you using, and what were you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What happened, or what would you like instead?
+    validations:
+      required: true
+  - type: input
+    id: importance
+    attributes:
+      label: Importance
+      description: Blocks me, annoying, or nice to have
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: Optional. A message you saw, or a sample of what you expected.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact email
+      description: So the maintainer can reach you. This will be public.
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version
+      description: Filled in for you when possible.

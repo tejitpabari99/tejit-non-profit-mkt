@@ -38,4 +38,4 @@ Summarize in a few lines, show the folder and sheet links, log the run (`05-run-
 Show what will change, get a yes, then create-new-and-trash-old for `metadata.txt`. Never delete anything else.
 
 ## If something fails
-Say what failed in plain words, what was created so far, and offer to continue from there.
+Say what failed in plain words, what was created so far, and offer to continue from there. Also offer to report it so it can be fixed: if they say yes, use the `share-feedback` skill (`../../share-feedback/SKILL.md`).
