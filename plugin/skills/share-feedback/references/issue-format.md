@@ -37,7 +37,7 @@ Allowed items only: which skill; which step or phase they were on; whether it wa
 Never include: names of organizations, partners, people or projects; emails; links; file, sheet, folder or calendar names; IDs; event details; numbers from their data; anything pasted from their files.
 
 ## Privacy
-No user data is shared at any point. Before showing the draft, check all fields, including their own words, and replace any such detail with a general description (for example "a partner organization"). Tell them you did.
+No user data is shared at any point. Before showing the draft, check every field, including their own words, and replace any name of an organization, person or project, email, link, file, sheet or folder name, ID, event detail or number from their data with a general description (for example "a partner organization"). Tell them you replaced it, and what you replaced it with in general terms. Repeat this check on any change they make, and show the draft again before anything is sent.
 
 ## Creating it directly
 When a GitHub tool or signed-in `gh` command is available, create the report on `tejitpabari99/tejit-np-plugin` with the title and body above and the label `feedback`. Show the link it returns.

@@ -10,7 +10,9 @@
 ## After finding sources
 Show a short table (organization, what I found). Do not ask whether to add the events: add them directly to the project calendar, then report (next section). Unsure matches become a question and write nothing.
 
-## After adding events: report, then what next
+## After adding events: report (step 5), then what next (step 6)
+Show this once, after any collected questions, not when the events are added.
+
 > **See the results here:** [<project name> sources](<sheet link>)
 >
 > **Calendar:** I added <A> events and updated <U>.

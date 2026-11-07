@@ -5,7 +5,7 @@
 An open-source plugin for AI assistants. It adds small, guided helpers that take repetitive work off a nonprofit team's plate. Created by Tejit Pabari.
 
 ## For AI assistants: helping someone onboard
-If someone shares this link and asks for help installing or onboarding, have them add this repository as a plugin marketplace and install from it, following [docs/install.md](docs/install.md) for their tool. Do not copy, download, recreate or paste the plugin's files or skills into their project, chat or settings, because a copy never receives updates or fixes. Walk them through it one step at a time in plain words. Turn on automatic updates where the tool offers it. Only if their tool truly has no marketplace option, use the "Other tools" route in docs/install.md and tell them it will not update by itself.
+If someone shares this link and asks for help installing or onboarding, have them add this repository as a plugin marketplace and install from it, following [docs/install.md](https://github.com/tejitpabari99/tejit-np-plugin/blob/main/docs/install.md) for their tool. Do not copy, download, recreate or paste the plugin's files or skills into their project, chat or settings, because a copy never receives updates or fixes. Walk them through it one step at a time in plain words. Turn on automatic updates where the tool offers it. Only if their tool truly has no marketplace option, use the "Other tools" route in docs/install.md and tell them it will not update by itself.
 
 ## Who it is for
 Nonprofit staff and volunteers who are not technical. Every step is explained in plain words, and nothing is shared or sent without your yes.
