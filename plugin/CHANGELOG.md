@@ -22,6 +22,24 @@
 
 ---
 
+## 0.1.2 (2026-11-07)
+
+Warmer GitHub step, a clearer setup order, events added straight to the calendar, and a more private feedback form.
+
+**What's new for users**
+- The optional GitHub step is friendlier, and when you say yes your AI assistant stars the project for you where it can.
+- Setup now reads your partner list and shows you what it will use first, and only creates the new sheet once your choice of categories is final.
+- If your list has no categories, the assistant adds one for each organization as it finds their sources. Blank categories are filled in the same way.
+- Events found are added straight to the project calendar, and you are told what was added. Only the project calendar is used, never your main one.
+- Share Feedback now lets your own ideas lead and asks a few open follow-up questions. It no longer asks for your email and shares no names or private details. A short general Context is filled in for you, and you see the full message before anything is sent.
+
+**Project changes**
+- none
+
+**Maintainer notes**
+- Feedback form: field `type` renamed to `feedback_type` (GitHub's own issue type clashed with it and the link did not fill it in). `contact` removed. New `context` field. The validator checks the new ids.
+- Skills: `start` 0.1.2, `partner-event-finder` 0.1.2, `share-feedback` 0.1.2.
+
 ## 0.1.1 (2026-11-06)
 
 Internal reorganization. Nothing changes for users.

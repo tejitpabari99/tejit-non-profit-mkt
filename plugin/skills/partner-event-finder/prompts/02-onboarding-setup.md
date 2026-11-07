@@ -11,27 +11,30 @@ Explain, then create or reuse: `tejit-np-plugin` at the top of My Drive, inside 
 ## Step 2: partner list
 Explain. Search Drive for sheets mentioning partner, directory, hub or list; show top matches with last-modified dates; suggest the best one. READ ONLY. Internally find the real header row and tab (ask which tab only if several are plausible).
 
-## Step 3: read the list, create the new sheet, confirm the data
-Explain in one step, in this order:
+## Step 3: read the list and confirm the data
+Read only. Nothing is created or copied yet. Explain, then in this order:
 1. Read the partner list.
-2. Create a new Google Sheet in the project folder named `<project name> sources` (separate from the original), with the tabs described in `references/sheet-schema.md`.
-3. **Confirm in plain words what will be used**, for example: "I'll use each partner's **name**, **website**, **category** and **city** from your list." (Only what exists; if there is no website column, say websites will be found for you and filled in as I go.) Show the first five organizations as they will appear and ask **"Does this look right?"** Do not mention column letters, IDs or matching.
-4. Quietly work out how to recognise each organization (use `references/metadata-schema.md` "Recognising organizations"). If duplicates are found, say only: "I found <N> organizations listed twice and combined each pair into one."
-5. Fill the Organizations tab (all rows kept for now), write in batches, and show the sheet link. Make Category a dropdown after step 4 below.
+2. **Confirm in plain words what will be used**, for example: "I'll use each partner's **name**, **website**, **category** and **city** from your list." (Only what exists; if there is no website column, say websites will be found for you and filled in as I go.) Show the first five organizations as they will appear and ask **"Does this look right?"** Do not mention column letters, IDs or matching.
+3. Quietly work out how to recognise each organization (use `references/metadata-schema.md` "Recognising organizations"). If duplicates are found, say only, as a plan: "I found <N> organizations listed twice and will combine each pair into one."
 
 ## Step 4: categories
-List the distinct categories with counts in a chat message, noting which likely do not host events. Then ask **"Which categories should be kept?"** with the categories as options and **"Keep all" as the LAST option** (suggested). Anything not chosen is left out of the new sheet (never removed from the original). Rows with no category stay. Apply the choice to the new sheet and make Category a dropdown (strict) of the chosen categories.
+If the list has no category information, do not ask. Say: "Your list doesn't have categories, so I'll add one for each organization as I go." Then go to step 5.
 
-## Step 5: the calendar
+Otherwise list the distinct categories with counts in a chat message, noting which likely do not host events. Then ask **"Which categories should be kept?"** with the categories as options and **"Keep all" as the LAST option** (suggested). Anything not chosen is left out of the new sheet (never removed from the original). Rows with no category stay. Only record the choice for now.
+
+## Step 5: create the new sheet and copy
+Only now, once the selection is final, create a new Google Sheet in the project folder named `<project name> sources` (separate from the original), with the tabs described in `references/sheet-schema.md`. Copy only the kept organizations into the Organizations tab (combining duplicate pairs), write in batches, and make Category a strict dropdown (see `references/sheet-schema.md`). Then, and only then, say "I added <N> organizations" and show the sheet link.
+
+## Step 6: the calendar
 Send `templates/calendar-instructions.md`, then ask the calendar name (suggest Partner Fundraising Events). Find it, confirm "Is this the one: <name>?", save it. Mention `guides/sharing-the-calendar.md`. No time-zone question.
 
-## Step 6: defaults
+## Step 7: defaults
 Tell them (no decision needed): events tracked are galas, auctions, walks/runs, social fundraisers, giving campaigns and community events; the window is the next 12 months; each round does at most 20 organizations; the first run is a sample of 5. Ask only "any change?".
 
-## Step 7: save your choices
+## Step 8: save your choices
 Explain. Create `metadata.txt` in the project folder (plain text, no conversion to a Google file type) with the lines in `references/metadata-schema.md`, including `plugin_version`, `plugin_source`. Make sure the root `metadata.txt` also exists (`../../start/references/root-metadata.md`). Read both back. Ask memory to remember: "Partner Event Finder project <name>: Drive folder `tejit-np-plugin/partner-event-finder/<name>`, settings file `metadata.txt`." If memory is unavailable, say so; the skill finds the folder by search.
 
-## Step 8: finish setup and first run
+## Step 9: finish setup and first run
 Summarize in a few lines, show the folder and sheet links, log the run (`05-run-log.md`, phase `setup`). Ask: **"Shall we try a sample of 5 organizations now?"** If yes, go to `03-find-sources.md`.
 
 ## Changing settings later

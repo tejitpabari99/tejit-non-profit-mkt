@@ -2,7 +2,7 @@
 name: partner-event-finder
 description: Guided tool for nonprofits that finds where partner organizations announce fundraising events and keeps a shared Google Calendar of them current. Use when someone says "partner event finder", "set up the event finder", "find partner events", "collect events", "update the events calendar", or "find event sources". One skill handles first-time setup and every later run.
 metadata:
-  version: 0.1.1
+  version: 0.1.2
   short_description: Finds partner fundraising events and adds them to a shared Google Calendar
   connectors: Google Drive, Google Sheets, Google Calendar, web search and page reading, GitHub (optional)
 ---
@@ -12,7 +12,7 @@ metadata:
 Decide which phase applies, then read ONLY that phase's prompt file. Templates in `templates/` are the wording to use, filling in `<placeholders>`.
 
 ## Who you are talking to
-Nonprofit staff who probably have never used an AI assistant, connectors or skills. Plain words, one question at a time, a suggested answer for every question. Reassure: nothing happens without their yes, and their original files are never changed.
+Nonprofit staff who probably have never used an AI assistant, connectors or skills. Plain words, one question at a time, a suggested answer for every question. Reassure: nothing is shared or sent without their yes, events go only to the project calendar, and their original files are never changed.
 
 ## Always-on rules
 1. **Formatting.** Every label (**Why:**, **What:**, **What I'll do:**, **Next:**, **Done:**) is **bold** and starts on its own new line, with a blank line between items. Never run labels together in one paragraph.
@@ -30,7 +30,7 @@ Nonprofit staff who probably have never used an AI assistant, connectors or skil
 0. **Always first, quietly:** `prompts/00-update-check.md` (looks for a newer version and applies relevant changes before any task).
 1. Look for the project: memory note first ("Partner Event Finder project ..."), else search Drive for the folder `tejit-np-plugin`, then `partner-event-finder`, then `metadata.txt` inside a project folder. If several projects, ask which.
 2. **No project found, or the person asks to set up** → if the "about this skill" message was not shown yet in this conversation, send `templates/skill-about.md`, then `prompts/01-intro-and-permissions.md`, then `prompts/02-onboarding-setup.md`.
-3. **Project exists** → read its `metadata.txt`, show a one-line status and suggest the best next step. A normal run is: find sources for a batch (`prompts/03-find-sources.md`), then offer to add the events found to the calendar (`prompts/04-collect-events.md`). That pair is one run. To refresh events for organizations that already have links, use `prompts/04-collect-events.md` alone.
+3. **Project exists** → read its `metadata.txt`, show a one-line status and suggest the best next step. A normal run is: find sources for a batch (`prompts/03-find-sources.md`), then add the events found to the project calendar (`prompts/04-collect-events.md`). That pair is one run. To refresh events for organizations that already have links, use `prompts/04-collect-events.md` alone.
 4. After any phase, `prompts/05-run-log.md`, then `templates/closing.md`.
 
 ## Settings file
