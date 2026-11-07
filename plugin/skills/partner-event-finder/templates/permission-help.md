@@ -17,4 +17,4 @@ For each missing connection, send:
 
 After they reply, check again. Repeat until every needed connection works. Needed: Google Drive, Google Sheets, Google Calendar, web search and page reading.
 
-**Optional connections never block.** If **GitHub** (or any connection marked optional) is not connected, carry on. Do not walk the person through connecting it unless they ask. If they do ask, use the same message above, and tell them it is only for starring the project and sending feedback, and that they can skip it.
+**Optional connections never block.** If **GitHub** (or any connection marked optional) is not connected, carry on. Do not walk the person through connecting it unless they ask. If they do ask, use the same message above, and tell them it is only for starring the project and sending feedback, and that it is optional.
