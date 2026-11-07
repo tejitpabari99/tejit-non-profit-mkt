@@ -16,7 +16,7 @@ flowchart TD
     D --> E["Check Drive, Sheets, Calendar and web access, help turn on any that are missing"]
     E --> F["Confirm access with the person"]
     F --> F2["Optional, once: offer to star the project on GitHub, or help make a free account"]
-    F2 --> G["Set up: project folder, partner list, new sheet, categories, calendar, defaults"]
+    F2 --> G["Set up: project folder, partner list, confirm the data, categories, then create the new sheet and copy, calendar, defaults"]
     G --> H["Offer a sample of 5 organizations"]
     C -- Yes --> I["Show status and suggest the next step"]
     I --> J
