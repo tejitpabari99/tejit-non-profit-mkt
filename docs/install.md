@@ -7,14 +7,17 @@ After installing, start a new chat and say **"Tejit's non profit tools"**.
 ## What was tested
 - Tested: Claude Code and GitHub Copilot CLI installs.
 - Gemini CLI 0.67.0: `gemini extensions validate plugin` worked. Installing from a local folder and from the GitHub address was not tested after the plugin moved into `plugin/`.
-- Not tested by us: Claude website or desktop, ChatGPT, Codex, VS Code. These steps come from each vendor's documentation and may change.
+- Claude website or desktop: the add-marketplace steps were confirmed from the owner's screen.
+- Not tested by us: ChatGPT, Codex, VS Code. These steps come from each vendor's documentation and may change.
 
 ## Claude website or desktop app
-1. Open **Customize**, then **Plugins**.
-2. Choose **Add**, then **Add marketplace**.
-3. Paste `tejitpabari99/tejit-np-plugin` and confirm.
-4. Choose **Install**.
-5. Turn on **Sync automatically** so you always get the newest version.
+1. Click your name, then **Settings**.
+2. Choose **Customize**.
+3. Choose **Plugins**, then **Add**, then **Add marketplace**.
+4. Choose **Add from a repository**.
+5. Enter `tejitpabari99/tejit-np-plugin`, then choose **Sync**.
+6. Choose **Install**.
+7. Turn on **Sync automatically** so you always get the newest version.
 
 ## Claude Code
 Version 2.1.275 or later:
