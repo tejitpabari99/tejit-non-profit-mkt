@@ -17,7 +17,7 @@ Every label such as **Why:**, **Next:** is **bold** and starts on its own new li
 ## Steps
 1. **Short intro.** Say why this helps (the tools are made by a volunteer and get better from what real teams run into) and that it takes a couple of minutes. Then say: "Please don't include donor details, names of people you serve, or other private information."
 2. **Ask one question at a time.** The idea must come from them. A suggested answer is allowed ONLY for which tool (name the skill they just used, which is a fact). For what happened, what they want, importance and the example, give no suggestion, example, guess, sample wording or recommendation.
-   1. **Type:** something broke / could be better / a new idea.
+   1. **Feedback type:** something broke / could be better / a new idea.
    2. **Which tool, and what were you trying to do?** (You may name the skill they just used, if any.)
    3. **What happened, or what would you like instead?**
    4. **How much does it matter?** List the three options, blocks me / annoying / nice to have, with no recommendation.

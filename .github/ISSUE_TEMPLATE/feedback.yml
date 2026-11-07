@@ -10,7 +10,7 @@ body:
   - type: input
     id: feedback_type
     attributes:
-      label: Type
+      label: Feedback type
       description: Something broke, could be better, or a new idea
     validations:
       required: true

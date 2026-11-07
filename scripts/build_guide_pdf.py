@@ -80,11 +80,10 @@ def build():
     s += [t, PageBreak()]
     s.append(step_block(3, "Click <b>Plugins</b>, then <b>Add</b>, then <b>Add marketplace</b>.", "step-3.png"))
     s.append(step_block(4, "Click <b>Add from a repository</b>.", "step-4.png"))
-    s.append(step_block(5, "Type <b>tejitpabari99/tejit-np-plugin</b>, then click <b>Sync</b>.", "step-5.png"))
+    s.append(step_block(5, "Type <b>tejitpabari99/tejit-np-plugin</b>, keep <b>Sync automatically</b> on, then click <b>Sync</b>.", "step-5.png", max_h=2.6 * inch))
     s.append(KeepTogether([
-        step_block(6, "Click <b>Install</b>."),
-        step_block(7, "Turn on <b>Sync automatically</b>, so you always get the newest version."),
-        step_block(8, "Start a new chat and say <b>\"Tejit's non profit tools\"</b>."),
+        step_block(6, "If you see an <b>Install</b> button for Tejit's Non Profit Tools, click it."),
+        step_block(7, "Start a new chat and say <b>\"Tejit's non profit tools\"</b>."),
     ]))
     s.append(Paragraph(
         "Please add it this way, rather than copying files, so you get updates and fixes automatically.", body))

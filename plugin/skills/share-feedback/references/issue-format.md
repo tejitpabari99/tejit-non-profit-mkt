@@ -7,7 +7,7 @@
 These match the fields of the form `.github/ISSUE_TEMPLATE/feedback.yml`.
 
 ```
-### Type
+### Feedback type
 <something broke | could be better | new idea>
 
 ### Tool and goal

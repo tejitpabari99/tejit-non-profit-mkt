@@ -15,9 +15,8 @@ After installing, start a new chat and say **"Tejit's non profit tools"**.
 2. Choose **Customize**.
 3. Choose **Plugins**, then **Add**, then **Add marketplace**.
 4. Choose **Add from a repository**.
-5. Enter `tejitpabari99/tejit-np-plugin`, then choose **Sync**.
-6. Choose **Install**.
-7. Turn on **Sync automatically** so you always get the newest version.
+5. Enter `tejitpabari99/tejit-np-plugin`, keep **Sync automatically** on, then choose **Sync**.
+6. If you see **Install**, choose it.
 
 ## Claude Code
 Version 2.1.275 or later:
