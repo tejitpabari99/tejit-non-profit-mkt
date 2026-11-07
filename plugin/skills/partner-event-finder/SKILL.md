@@ -30,7 +30,7 @@ Nonprofit staff who probably have never used an AI assistant, connectors or skil
 0. **Always first, quietly:** `prompts/00-update-check.md` (looks for a newer version and applies relevant changes before any task).
 1. Look for the project: memory note first ("Partner Event Finder project ..."), else search Drive for the folder `tejit-np-plugin`, then `partner-event-finder`, then `metadata.txt` inside a project folder. If several projects, ask which.
 2. **No project found, or the person asks to set up** → if the "about this skill" message was not shown yet in this conversation, send `templates/skill-about.md`, then `prompts/01-intro-and-permissions.md`, then `prompts/02-onboarding-setup.md`.
-3. **Project exists** → read its `metadata.txt`, show a one-line status and suggest the best next step. A normal run is: find sources for a batch (`prompts/03-find-sources.md`), then offer to add the events found to the calendar (`prompts/04-collect-events.md`). That pair is one run. To refresh events for organizations that already have links, use `prompts/04-collect-events.md` alone.
+3. **Project exists** → read its `metadata.txt`, show a one-line status and suggest the best next step. A normal run is: find sources for a batch (`prompts/03-find-sources.md`), then add the events found to the project calendar (`prompts/04-collect-events.md`). That pair is one run. To refresh events for organizations that already have links, use `prompts/04-collect-events.md` alone.
 4. After any phase, `prompts/05-run-log.md`, then `templates/closing.md`.
 
 ## Settings file

@@ -9,7 +9,7 @@
 > I will read your partner list (I never change it) and create a new, separate sheet that I write to.
 >
 > **Google Calendar:**
-> I will add events to the one calendar you choose for this. Your main calendar is never touched.
+> I will add the events I find straight to the one calendar you choose for this, without asking each time, and tell you what I added. Your main calendar is never touched.
 >
 > **Websites:**
 > I will read the public websites of your partner organizations.

@@ -13,6 +13,6 @@ Read `references/sheet-schema.md` and the project `metadata.txt` first. Read the
    - **Write:** Sources rows (same organization and URL = update, never duplicate); set Triage, Sources status, Last checked.
    - A page that needs login or can't be read: Needs input or Unreadable, with why. Never count it as "no events".
 4. **Report** in plain words: how many checked, how many host events, links saved, items needing help (exact link and what to do). Show the sheet link (every time).
-5. **Continue straight to `04-collect-events.md`** for this same batch. The run is not complete until the person has been asked about adding events to the calendar. Do not offer "10 more" before that.
+5. **Continue straight to `04-collect-events.md`** for this same batch. The run is not complete until the events have been added to the calendar and reported. Do not offer "10 more" before that.
 
 Rules: never delete rows; do not guess, mark Unsure; if a limit is hit say where you stopped (the sheet shows what is done).

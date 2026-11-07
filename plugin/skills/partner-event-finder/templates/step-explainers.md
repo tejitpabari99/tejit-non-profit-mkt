@@ -25,4 +25,4 @@ Say it in chat first, then ask the question. Always bold labels, each on its own
 - **Calendar:** Next: the events calendar. / Why: events go in their own calendar so you can share it with your board and keep your own uncluttered. / What I'll do: show you how to make one (about a minute).
 - **Saving your choices:** Next: remembering your choices. / Why: so next time you don't have to answer these questions again. / What I'll do: save a small note in your project folder. You never need to open it.
 - **Finding sources:** Next: finding where each partner posts events. / Why: events are often one click away from the home page. / What I'll do: visit their websites and note down the event links, plus a short description, website and category in your sheet.
-- **Adding to calendar:** Next: adding the events I found. / Why: this is the payoff, one place to see what's coming. / What I'll do: show you the events and add them only after your yes.
+- **Adding to calendar:** Next: adding the events I found. / Why: this is the payoff, one place to see what's coming. / What I'll do: add them to your project calendar (never your main one), then show you what I added.

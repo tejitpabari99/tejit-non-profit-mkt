@@ -3,7 +3,7 @@
 ## What it does
 You have a list of partner organizations. This skill visits their public websites, finds where they announce fundraising events (galas, auctions, walks and so on), saves the links in a Google Sheet, and adds the events to a separate Google Calendar your team can share.
 
-It works in rounds of at most 20 organizations. The first run is a sample of 5. The first time, it also offers an optional extra: starring the project on GitHub (and helping you make a free account if you want one). It is optional. Nothing is added to the calendar until you say yes. Your original list is only read. Nothing is deleted.
+It works in rounds of at most 20 organizations. The first run is a sample of 5. The first time, it also offers an optional extra: starring the project on GitHub (and helping you make a free account if you want one). It is optional. Events it finds are added straight to the separate project calendar, and it tells you what it added. Your original list is only read. Nothing is deleted.
 
 Skill file: [plugin/skills/partner-event-finder/SKILL.md](../../plugin/skills/partner-event-finder/SKILL.md)
 
@@ -22,11 +22,8 @@ flowchart TD
     I --> J
     H --> J["Find sources: visit each website and save event links in the sheet"]
     J --> K["Look for events in the next 12 months"]
-    K --> L["Show the events and ask: add them to your calendar?"]
-    L -- Yes --> M["Add or update events in the separate calendar"]
-    L -- No --> N["Write nothing to the calendar"]
-    M --> O["Report results with the sheet link"]
-    N --> O
+    K --> M["Add or update events in the separate calendar"]
+    M --> O["Report what was added, with the sheet link"]
     O --> P["Add a row to the Log tab"]
     P --> Q["Offer 10 more, all remaining, or stop"]
 ```
