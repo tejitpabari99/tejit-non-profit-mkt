@@ -1,9 +1,9 @@
 # Releasing
 
 ## Steps
-1. Change the plugin and add a section to `CHANGELOG.md`.
-2. Bump `version` in `.claude-plugin/plugin.json`, in `gemini-extension.json` (must match), and `metadata.version` in any changed skill. Without a new version number, people will not receive the change.
-3. Run `claude plugin validate .` and `python3 .github/scripts/validate_plugin.py`.
+1. Change the plugin and add a section to `plugin/CHANGELOG.md`.
+2. Bump `version` in `plugin/.claude-plugin/plugin.json`, in `plugin/gemini-extension.json` (must match), and `metadata.version` in any changed skill. Without a new version number, people will not receive the change.
+3. Run `claude plugin validate .`, `claude plugin validate plugin` and `python3 .github/scripts/validate_plugin.py`.
 4. Open a pull request into `main` and merge it.
 
 ## What CI checks
@@ -11,11 +11,11 @@ On every pull request (`.github/workflows/validate.yml`):
 - The plugin validates, and JSON and skill frontmatter are well formed.
 - The changelog has a section for the plugin version.
 - Referenced files exist and relative links in `README.md` and `docs/` resolve.
-- `gemini-extension.json` matches `plugin.json` (name, version, description).
-- The license is MIT, `LICENSE` exists, and `.claude-plugin/icon.png` is a square PNG between 512 and 2048 pixels.
+- `plugin/gemini-extension.json` matches `plugin.json` (name, version, description).
+- The license is MIT, `LICENSE` exists, and `plugin/.claude-plugin/icon.png` is a square PNG between 512 and 2048 pixels.
 - The feedback form `.github/ISSUE_TEMPLATE/feedback.yml` exists with its field ids and the `feedback` label.
 - Each skill has a page in `docs/skills/` with a Mermaid flow.
-- The plain word "Claude" is not used in `skills/`, `CONNECTORS.md` or `guides/` (except the update-check prompt).
+- The plain word "Claude" is not used in `plugin/skills/`, `plugin/CONNECTORS.md` or `plugin/guides/` (except the update-check prompt).
 - When plugin files changed, the plugin version and each changed skill's version are higher than on `main`.
 - The ZIP builds, and holds the plugin files but no `.github/` or `docs/`.
 
@@ -24,7 +24,7 @@ For tools that take an upload instead of a marketplace. Python 3 only, any OS:
 ```
 python3 scripts/build_zip.py
 ```
-This writes `dist/tejit-np-plugin-<version>.zip` (version read from `plugin.json`). It holds `.claude-plugin/`, `gemini-extension.json`, `skills/`, `guides/`, `CHANGELOG.md`, `CONNECTORS.md`, `LICENSE` and `README.md` at the ZIP root.
+This writes `dist/tejit-np-plugin-<version>.zip` (version read from `plugin.json`). It holds the contents of `plugin/` (`.claude-plugin/`, `gemini-extension.json`, `skills/`, `guides/`, `CHANGELOG.md`, `CONNECTORS.md`) plus `LICENSE` and `README.md` at the ZIP root.
 
 For portals that take one skill at a time:
 ```

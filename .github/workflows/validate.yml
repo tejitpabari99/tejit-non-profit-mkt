@@ -25,13 +25,13 @@ jobs:
       - name: Install Claude Code
         run: npm install -g @anthropic-ai/claude-code@2.1.318
       - name: Validate plugin with Claude Code
-        run: claude plugin validate .
+        run: claude plugin validate . && claude plugin validate plugin
       - name: Install Gemini CLI
         run: npm install -g @google/gemini-cli@0.67.0
       - name: Validate Gemini extension
-        run: gemini extensions validate .
+        run: gemini extensions validate plugin
       - name: Compile scripts
-        run: python3 -m py_compile skills/partner-event-finder/scripts/dedupe_orgs.py scripts/build_zip.py
+        run: python3 -m py_compile plugin/skills/partner-event-finder/scripts/dedupe_orgs.py scripts/build_zip.py
       - name: Build ZIP and check its contents
         run: |
           python3 scripts/build_zip.py

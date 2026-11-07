@@ -3,7 +3,7 @@
 ## How to use this file (for the maintainer and for the assistant)
 
 **Where versions live**
-- Plugin version: `.claude-plugin/plugin.json` → `version` (the single source of truth; do NOT also set it in marketplace.json).
+- Plugin version: `plugin/.claude-plugin/plugin.json` → `version` (the single source of truth; do NOT also set it in marketplace.json).
 - Skill version: each skill's `SKILL.md` frontmatter → `metadata.version`. A skill's version changes only when that skill changes.
 - A project's last applied version: `plugin_version` in the project's `metadata.txt` in Drive.
 
@@ -21,6 +21,22 @@
 **What the assistant does at the start of every run** (`prompts/00-update-check.md`): compares the project's `plugin_version` with the installed version, reads every section newer than the project's version (oldest first), performs the **Project changes** relevant to the skill being used, then updates `plugin_version`. Write Project changes as precise, safe, repeatable steps. Never include deleting user data.
 
 ---
+
+## 0.1.1 (2026-11-06)
+
+Internal reorganization. Nothing changes for users.
+
+**What's new for users**
+- Nothing. The tools work exactly as before.
+
+**Project changes**
+- none
+
+**Maintainer notes**
+- All plugin files moved into the `plugin/` folder; the repository root now holds only repo-level files (README, LICENSE, docs, scripts, CI, and the marketplace file).
+- The marketplace entry now points to `./plugin`. The update check now reads `plugin/.claude-plugin/plugin.json`. Copies installed at 0.1.0 still look at the old root path, which no longer exists, so they skip the update check quietly.
+- Gemini CLI install from the GitHub address no longer works from the root; see `docs/install.md`.
+- Skills: `start` 0.1.1, `partner-event-finder` 0.1.1, `share-feedback` 0.1.1.
 
 ## 0.1.0 (2026-11-05)
 

@@ -2,7 +2,7 @@
 name: start
 description: Front door of Tejit's Non Profit Tools, a plugin for nonprofits. Use when someone says "non profit tools", "Tejit's tools", "get started", "what can you do", "what skills are there", or opens the plugin without naming a skill. Introduces the plugin, lists the available skills and hands off to the one the person picks.
 metadata:
-  version: 0.1.0
+  version: 0.1.1
   short_description: Introduces the toolkit and helps you pick a skill
   connectors: none
 ---

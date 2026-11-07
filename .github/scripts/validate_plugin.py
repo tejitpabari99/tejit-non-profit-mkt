@@ -9,6 +9,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+PLUGIN = ROOT / "plugin"
+PJ_REL = "plugin/.claude-plugin/plugin.json"
+OLD_PJ_REL = ".claude-plugin/plugin.json"  # location before the move into plugin/
 REPO_URL = "https://github.com/tejitpabari99/tejit-np-plugin"
 SEMVER = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$")
 errors = []
@@ -54,7 +57,7 @@ def git(*args):
 
 def check_json_and_names():
     mp_path = ROOT / ".claude-plugin" / "marketplace.json"
-    pj_path = ROOT / ".claude-plugin" / "plugin.json"
+    pj_path = PLUGIN / ".claude-plugin" / "plugin.json"
     mp, pj = load_json(mp_path), load_json(pj_path)
     if not (mp and pj):
         return None
@@ -73,20 +76,20 @@ def check_json_and_names():
     if not semver_tuple(ver):
         err(f"plugin.json version {ver!r} is not valid semver")
     else:
-        cl = (ROOT / "CHANGELOG.md")
+        cl = PLUGIN / "CHANGELOG.md"
         if not cl.exists() or not re.search(r"^## " + re.escape(ver) + r" \(", cl.read_text(encoding="utf-8"), re.M):
             err(f"CHANGELOG.md has no '## {ver} (' section")
     return pj
 
 
 def skill_dirs():
-    return sorted(p.parent for p in (ROOT / "skills").glob("*/SKILL.md"))
+    return sorted(p.parent for p in (PLUGIN / "skills").glob("*/SKILL.md"))
 
 
 def check_skills():
     for d in skill_dirs():
         fm = frontmatter((d / "SKILL.md").read_text(encoding="utf-8"))
-        rel = f"skills/{d.name}/SKILL.md"
+        rel = f"plugin/skills/{d.name}/SKILL.md"
         if not fm:
             err(f"{rel}: missing frontmatter")
             continue
@@ -105,9 +108,9 @@ def check_skills():
 
 def check_references():
     pat = re.compile(r"`((?:prompts/|templates/|references/|scripts/|\.\./)[^`\s]*)`")
-    for f in sorted((ROOT / "skills").rglob("*.md")):
-        parts = f.relative_to(ROOT / "skills").parts
-        skill_root = ROOT / "skills" / parts[0]
+    for f in sorted((PLUGIN / "skills").rglob("*.md")):
+        parts = f.relative_to(PLUGIN / "skills").parts
+        skill_root = PLUGIN / "skills" / parts[0]
         for m in pat.finditer(f.read_text(encoding="utf-8")):
             ref = m.group(1)
             if any(c in ref for c in "<>*{}"):
@@ -140,26 +143,26 @@ def check_release_files(pj):
         err(f"plugin.json license is {pj.get('license')!r}, expected 'MIT'")
     if not (ROOT / "LICENSE").is_file():
         err("LICENSE file is missing")
-    gp = ROOT / "gemini-extension.json"
+    gp = PLUGIN / "gemini-extension.json"
     if not gp.is_file():
-        err("gemini-extension.json is missing")
+        err("plugin/gemini-extension.json is missing")
     else:
         g = load_json(gp)
         if g is not None:
             for key in ("name", "version", "description"):
                 if g.get(key) != pj.get(key):
-                    err(f"gemini-extension.json {key} {g.get(key)!r} != plugin.json {pj.get(key)!r}")
-    ip = ROOT / ".claude-plugin" / "icon.png"
+                    err(f"plugin/gemini-extension.json {key} {g.get(key)!r} != plugin.json {pj.get(key)!r}")
+    ip = PLUGIN / ".claude-plugin" / "icon.png"
     if not ip.is_file():
-        err(".claude-plugin/icon.png is missing")
+        err("plugin/.claude-plugin/icon.png is missing")
         return
     head = ip.read_bytes()[:24]
     if head[:8] != b"\x89PNG\r\n\x1a\n" or head[12:16] != b"IHDR":
-        err(".claude-plugin/icon.png is not a PNG")
+        err("plugin/.claude-plugin/icon.png is not a PNG")
         return
     w, h = struct.unpack(">II", head[16:24])
     if w != h or not 512 <= w <= 2048:
-        err(f".claude-plugin/icon.png is {w}x{h}, must be square and 512 to 2048 px")
+        err(f"plugin/.claude-plugin/icon.png is {w}x{h}, must be square and 512 to 2048 px")
 
 
 def check_skill_docs():
@@ -172,10 +175,10 @@ def check_skill_docs():
 
 
 def check_neutral_wording():
-    allowed = {ROOT / "skills/partner-event-finder/prompts/00-update-check.md"}
-    targets = [ROOT / "CONNECTORS.md"]
+    allowed = {PLUGIN / "skills/partner-event-finder/prompts/00-update-check.md"}
+    targets = [PLUGIN / "CONNECTORS.md"]
     for sub in ("skills", "guides"):
-        targets += [p for p in (ROOT / sub).rglob("*") if p.is_file()]
+        targets += [p for p in (PLUGIN / sub).rglob("*") if p.is_file()]
     for f in sorted(targets):
         if f in allowed:
             continue
@@ -202,9 +205,9 @@ def check_feedback_form():
 
 
 def check_feedback_email():
-    f = ROOT / "skills" / "share-feedback" / "SKILL.md"
+    f = PLUGIN / "skills" / "share-feedback" / "SKILL.md"
     if not f.is_file() or "tejitpabari99@gmail.com" not in f.read_text(encoding="utf-8"):
-        err("skills/share-feedback/SKILL.md must contain tejitpabari99@gmail.com (email route)")
+        err("plugin/skills/share-feedback/SKILL.md must contain tejitpabari99@gmail.com (email route)")
 
 
 def check_links():
@@ -225,11 +228,18 @@ def check_base(base, pj):
     if git("rev-parse", "--verify", base).returncode != 0:
         err(f"--base ref {base!r} not found")
         return
-    show = git("show", f"{base}:.claude-plugin/plugin.json")
+    # Base may predate the move into plugin/: fall back to the old layout.
+    prefix = "plugin/"
+    show = git("show", f"{base}:{PJ_REL}")
     if show.returncode != 0:
-        print(f"base {base} has no .claude-plugin/plugin.json: skipping version-bump checks")
+        prefix = ""
+        show = git("show", f"{base}:{OLD_PJ_REL}")
+    if show.returncode != 0:
+        print(f"base {base} has no plugin.json: skipping version-bump checks")
         return
-    watched = ["skills/", ".claude-plugin/plugin.json", "CONNECTORS.md", "guides/"]
+    watched = ["plugin/skills/", PJ_REL, "plugin/CONNECTORS.md", "plugin/guides/"]
+    if not prefix:
+        watched += ["skills/", OLD_PJ_REL, "CONNECTORS.md", "guides/"]
     diff = git("diff", "--name-only", f"{base}...HEAD", "--", *watched)
     changed = [l for l in diff.stdout.splitlines() if l]
     if not changed:
@@ -243,10 +253,11 @@ def check_base(base, pj):
     new, old = semver_tuple(pj.get("version")), semver_tuple(base_ver)
     if new and old and not new > old:
         err(f"plugin version {pj.get('version')} must be higher than base {base_ver} (changed: {', '.join(changed[:5])})")
-    for name in sorted({c.split("/")[1] for c in changed if c.startswith("skills/") and c.count("/") >= 2}):
-        cur_p = ROOT / "skills" / name / "SKILL.md"
+    for name in sorted({c.split("/")[1] for c in changed if c.startswith("skills/") and c.count("/") >= 2}
+                       | {c.split("/")[2] for c in changed if c.startswith("plugin/skills/") and c.count("/") >= 3}):
+        cur_p = PLUGIN / "skills" / name / "SKILL.md"
         cur = frontmatter(cur_p.read_text(encoding="utf-8"))[2] if cur_p.exists() else None
-        b = git("show", f"{base}:skills/{name}/SKILL.md")
+        b = git("show", f"{base}:{prefix}skills/{name}/SKILL.md")
         if b.returncode != 0:
             continue  # new skill
         bfm = frontmatter(b.stdout)
@@ -254,7 +265,7 @@ def check_base(base, pj):
         if not cur:
             continue  # reported by check_skills
         if semver_tuple(cur) and semver_tuple(bver) and not semver_tuple(cur) > semver_tuple(bver):
-            err(f"skills/{name} changed but metadata.version {cur} is not higher than base {bver}")
+            err(f"plugin/skills/{name} changed but metadata.version {cur} is not higher than base {bver}")
 
 
 def main():

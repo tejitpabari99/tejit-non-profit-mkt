@@ -10,7 +10,7 @@ Never show the person version numbers, file names, or technical detail. High lev
 - **Source:** `plugin_source` in the root `metadata.txt` (Drive folder `tejit-np-plugin`), else the plugin's `repository` field. If it is a GitHub address, the newest files are readable at `https://raw.githubusercontent.com/<owner>/<repo>/main/`.
 
 ## 2. Is there a newer plugin version?
-Try to read the newest `.claude-plugin/plugin.json` at the root of the source and compare its `version` with the installed one. If it cannot be read, skip quietly.
+Try to read the newest `plugin/.claude-plugin/plugin.json` of the source (on GitHub: `plugin/.claude-plugin/plugin.json` under the raw address above) and compare its `version` with the installed one. If it cannot be read, skip quietly.
 - **Newer exists:** tell the person once, in plain words: "A newer version of this tool is available." Then explain how to get it:
   Tell them to use their tool's plugin update option. Short examples:
   - Claude Code: type `/plugin`, open **Marketplaces**, pick `tejit-np-plugin` (the marketplace has the same name as the plugin), choose **Update marketplace** (or turn on **Enable auto-update** so it never needs doing again).
@@ -25,7 +25,7 @@ Try to read the newest `.claude-plugin/plugin.json` at the root of the source an
 ## 3. Apply the changes to the project (the part you CAN do)
 If a project exists and its `plugin_version` is older than the installed version:
 1. Say: "Checking for improvements to your project… I found some. Applying them now." (high level only)
-2. Read the plugin's `CHANGELOG.md` (at the plugin root; if unavailable read it from the source). Collect every version section newer than the project version, oldest first.
+2. Read the plugin's `CHANGELOG.md` (at the plugin root; if unavailable read `plugin/CHANGELOG.md` from the source). Collect every version section newer than the project version, oldest first.
 3. In each section, read **Project changes** only. Perform the items that relate to Partner Event Finder (for example adding a column to the project sheet, filling a new field), in order, before the task. Only change files this plugin created. Never delete data; if something is unclear or risky, ask first.
 4. Write the new `plugin_version` (and `plugin_source`) into the project `metadata.txt` and the root `metadata.txt` (create-new then trash-old rule).
 5. Tell the person: "All up to date. Here's what's new for you:" with one short bullet per change in everyday words.

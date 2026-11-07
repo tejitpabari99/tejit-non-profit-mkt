@@ -5,7 +5,7 @@ Helps you tell the maintainer about a problem, an idea or something that could w
 
 There are three ways it can reach the maintainer. If GitHub is connected, it files the report for you (public, including your email). If not, and you have a GitHub account, it gives you a link with the form already filled in and you click Submit. If you have no account, you can create a free one (the skill guides you) or send it by email instead. Email goes only to the maintainer and is not public. With Gmail connected it can send for you; otherwise it shows the email to copy, plus a mailto link.
 
-Skill file: [skills/share-feedback/SKILL.md](../../skills/share-feedback/SKILL.md)
+Skill file: [plugin/skills/share-feedback/SKILL.md](../../plugin/skills/share-feedback/SKILL.md)
 
 ## Flow
 ```mermaid

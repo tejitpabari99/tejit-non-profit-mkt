@@ -2,29 +2,32 @@
 
 ## Repo layout
 ```
-tejit-np-plugin/                   (repo root = the plugin)
-├── .claude-plugin/                plugin.json, marketplace.json, icon.png
-├── gemini-extension.json          manifest for Gemini CLI
-├── skills/
-│   ├── start/                     welcome, skills list, source record,
-│   │                              optional GitHub step and account guide
-│   ├── partner-event-finder/      SKILL.md router, prompts/, templates/,
-│   │                              references/, scripts/
-│   └── share-feedback/            SKILL.md, report format
-├── guides/                        short how-to pages for staff
+tejit-np-plugin/                   (repo root)
+├── .claude-plugin/marketplace.json  marketplace file; points to plugin/
+├── plugin/                        the plugin itself
+│   ├── .claude-plugin/            plugin.json, icon.png
+│   ├── gemini-extension.json      manifest for Gemini CLI
+│   ├── skills/
+│   │   ├── start/                 welcome, skills list, source record,
+│   │   │                          optional GitHub step and account guide
+│   │   ├── partner-event-finder/  SKILL.md router, prompts/, templates/,
+│   │   │                          references/, scripts/
+│   │   └── share-feedback/        SKILL.md, report format
+│   ├── guides/                    short how-to pages for staff
+│   ├── CHANGELOG.md, CONNECTORS.md
 ├── docs/                          these docs
 ├── scripts/build_zip.py           builds an upload ZIP
 ├── .github/                       CI checks, ISSUE_TEMPLATE/feedback.yml
-├── CHANGELOG.md, CONNECTORS.md, LICENSE, README.md
+├── LICENSE, README.md
 ```
-The manifest lives in `.claude-plugin/` because Claude requires that folder. It is one copy, not a copy per tool. Other tools read the same `skills/` folder.
+The marketplace file stays at the repo root so marketplaces can find it; its `source` is `./plugin`. The plugin manifest lives in `plugin/.claude-plugin/` because Claude requires that folder. It is one copy, not a copy per tool. Other tools read the same `plugin/skills/` folder.
 
 Each skill has a short `SKILL.md` that routes to numbered prompt files (loaded only when needed) and exact-wording templates.
 
 ## How updates work
-- Installed copies update when the marketplace syncs and the version number in `.claude-plugin/plugin.json` is higher.
+- Installed copies update when the marketplace syncs and the version number in `plugin/.claude-plugin/plugin.json` is higher.
 - Each time a skill runs, it checks the repo for a newer version and tells the person how to update with their tool.
-- It then brings the person's saved project up to date using the "Project changes" in `CHANGELOG.md`.
+- It then brings the person's saved project up to date using the "Project changes" in `plugin/CHANGELOG.md`.
 - A plugin cannot replace its own files, so the person always does the update.
 
 ## Where things are saved in Google Drive

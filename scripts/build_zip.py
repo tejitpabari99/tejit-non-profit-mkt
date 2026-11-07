@@ -12,8 +12,8 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-INCLUDE = [".claude-plugin", "gemini-extension.json", "skills", "guides",
-           "CHANGELOG.md", "CONNECTORS.md", "LICENSE", "README.md"]
+PLUGIN = ROOT / "plugin"
+ROOT_FILES = ["LICENSE", "README.md"]  # repo-level files added to the ZIP root
 SKIP_DIRS = {"__pycache__"}
 SKIP_FILES = {".DS_Store"}
 
@@ -42,12 +42,12 @@ def main():
     ap.add_argument("--skill", help="build a ZIP of a single skill (SKILL.md at the ZIP root)")
     args = ap.parse_args()
 
-    version = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
+    version = json.loads((PLUGIN / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
 
     if args.skill:
-        sdir = ROOT / "skills" / args.skill
+        sdir = PLUGIN / "skills" / args.skill
         if not (sdir / "SKILL.md").is_file():
-            sys.exit(f"No such skill: skills/{args.skill}/SKILL.md not found")
+            sys.exit(f"No such skill: plugin/skills/{args.skill}/SKILL.md not found")
         items = [(f, f.relative_to(sdir)) for f in files_under(sdir)]
         for f, arc in items:
             if f.suffix == ".md" and re.search(r"\.\./", f.read_text(encoding="utf-8", errors="ignore")):
@@ -57,11 +57,12 @@ def main():
         return
 
     items = []
-    for name in INCLUDE:
+    items += [(f, f.relative_to(PLUGIN)) for f in files_under(PLUGIN)]
+    for name in ROOT_FILES:
         p = ROOT / name
-        if not p.exists():
+        if not p.is_file():
             sys.exit(f"Missing required path: {name}")
-        items += [(f, f.relative_to(ROOT)) for f in files_under(p)]
+        items.append((p, Path(name)))
     write_zip(ROOT / "dist" / f"tejit-np-plugin-{version}.zip", items)
 
 
