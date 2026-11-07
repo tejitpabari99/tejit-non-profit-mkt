@@ -22,8 +22,8 @@ These match the fields of the form `.github/ISSUE_TEMPLATE/feedback.yml`.
 ### Example
 <their example, or "none">
 
-### Contact email
-<their email>
+### Context
+<filled in by the assistant, see below>
 
 ### Plugin version
 <version from the plugin manifest, plus the AI tool name if known>
@@ -31,18 +31,27 @@ These match the fields of the form `.github/ISSUE_TEMPLATE/feedback.yml`.
 
 Label: `feedback`.
 
+## Context (filled in without asking)
+Allowed items only: which skill; which step or phase they were on; whether it was setup, a first run or a repeat run; what kind of action was happening, in general terms; the kind of problem, in general terms; which connections were available (Drive, Sheets, Calendar, web). Example: "Partner Event Finder, repeat run, collecting events; Drive, Sheets and Calendar connected."
+
+Never include: names of organizations, partners, people or projects; emails; links; file, sheet, folder or calendar names; IDs; event details; numbers from their data; anything pasted from their files.
+
+## Privacy
+No user data is shared at any point. Before showing the draft, check all fields, including their own words, and replace any such detail with a general description (for example "a partner organization"). Tell them you did.
+
 ## Creating it directly
 When a GitHub tool or signed-in `gh` command is available, create the report on `tejitpabari99/tejit-np-plugin` with the title and body above and the label `feedback`. Show the link it returns.
 
 ## Pre-filled link (no tool available)
 ```
-https://github.com/tejitpabari99/tejit-np-plugin/issues/new?template=feedback.yml&title=<urlencoded>&type=<urlencoded>&tool_goal=<urlencoded>&details=<urlencoded>&importance=<urlencoded>&example=<urlencoded>&contact=<urlencoded>&version=<urlencoded>
+https://github.com/tejitpabari99/tejit-np-plugin/issues/new?template=feedback.yml&title=<urlencoded>&feedback_type=<urlencoded>&tool_goal=<urlencoded>&details=<urlencoded>&importance=<urlencoded>&example=<urlencoded>&context=<urlencoded>&version=<urlencoded>
 ```
 - Percent-encode every value (spaces as `%20`, new lines as `%0A`).
 - `title` is the full title, including `[Feedback] `.
+- Always include `feedback_type`, with exactly one of: something broke | could be better | new idea. (The field id is `feedback_type` because `type` clashes with GitHub's own issue type and is not filled in.)
 - Do NOT add a `labels=` parameter. The form applies the label itself.
 - If the whole link would be longer than about 6000 characters, shorten the example text. If it is still too long, tell them to open `https://github.com/tejitpabari99/tejit-np-plugin/issues/new?template=feedback.yml` (the plain form) and paste in the answers you show them.
-- Tell them to review the form and click **Submit**. Remind them it will be public, including their email.
+- Tell them to review the form and click **Submit**. Remind them it will be public.
 
 ## Email route
 Used when the person has no GitHub account and prefers email.
@@ -55,4 +64,4 @@ Used when the person has no GitHub account and prefers email.
 mailto:tejitpabari99@gmail.com?subject=<urlencoded>&body=<urlencoded>
 ```
   Percent-encode both values (spaces as `%20`, new lines as `%0A`). If the whole link would be longer than about 2000 characters, leave out `body=` and tell them to paste the body shown.
-- Remind them it goes only to the maintainer and is not public.
+- Remind them it goes only to the maintainer and is not public. Their address is simply the sender.

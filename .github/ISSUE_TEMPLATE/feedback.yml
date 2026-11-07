@@ -6,9 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for helping make these tools better. **This issue will be public, including your email.** Please do not include donor details or other private information.
+        Thank you for helping make these tools better. **This issue will be public.** Please do not include donor details or other private information.
   - type: input
-    id: type
+    id: feedback_type
     attributes:
       label: Type
       description: Something broke, could be better, or a new idea
@@ -38,11 +38,11 @@ body:
     attributes:
       label: Example
       description: Optional. A message you saw, or a sample of what you expected.
-  - type: input
-    id: contact
+  - type: textarea
+    id: context
     attributes:
-      label: Contact email
-      description: So the maintainer can reach you. This will be public.
+      label: Context
+      description: Filled in for you. Never includes names or private details.
   - type: input
     id: version
     attributes:

@@ -197,7 +197,7 @@ def check_feedback_form():
         err(".github/ISSUE_TEMPLATE/feedback.yml is missing")
         return
     text = f.read_text(encoding="utf-8")
-    for fid in ("type", "tool_goal", "details", "importance", "example", "contact", "version"):
+    for fid in ("feedback_type", "tool_goal", "details", "importance", "example", "context", "version"):
         if not re.search(r"^\s*id:\s*" + fid + r"\s*$", text, re.M):
             err(f"feedback.yml is missing field id {fid!r}")
     if not re.search(r"^labels:.*\bfeedback\b", text, re.M):
