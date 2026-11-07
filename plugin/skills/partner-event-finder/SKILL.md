@@ -2,7 +2,7 @@
 name: partner-event-finder
 description: Guided tool for nonprofits that finds where partner organizations announce fundraising events and keeps a shared Google Calendar of them current. Use when someone says "partner event finder", "set up the event finder", "find partner events", "collect events", "update the events calendar", or "find event sources". One skill handles first-time setup and every later run.
 metadata:
-  version: 0.1.1
+  version: 0.1.2
   short_description: Finds partner fundraising events and adds them to a shared Google Calendar
   connectors: Google Drive, Google Sheets, Google Calendar, web search and page reading, GitHub (optional)
 ---
