@@ -231,7 +231,7 @@ NOTICE = "Your personal details stay anonymous. We collect your organization nam
 REFS = PLUGIN / "skills" / "start" / "references"
 # Each group of usage-ping checks is switched on by the task that satisfies it,
 # so every commit stays green. Pass --enforce-all to run all groups now.
-ENFORCED = {"legal", "recipes", "identity_entry", "install"}
+ENFORCED = {"legal", "recipes", "identity_entry", "install", "runlog"}
 ALL_GROUPS = ["legal", "recipes", "identity_entry", "install", "runlog", "feedback"]
 
 
