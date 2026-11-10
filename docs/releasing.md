@@ -17,6 +17,7 @@ On every pull request (`.github/workflows/validate.yml`):
 - Each skill has a page in `docs/skills/` with a Mermaid flow.
 - The plain word "Claude" is not used in `plugin/skills/`, `plugin/CONNECTORS.md` or `plugin/guides/` (except the update-check prompt).
 - When plugin files changed, the plugin version and each changed skill's version are higher than on `main`.
+- `TERMS.md` and `PRIVACY.md` exist, link to each other, and are linked from `README.md`; the usage-ping recipes (`identity.md`, `usage-ping.md`) exist with the exact notice text, the uid snippet, and no `reason`; `start`, `partner-event-finder` and `install-automation` reference them, and `share-feedback` does not.
 - The ZIP builds, and holds the plugin files but no `.github/` or `docs/`.
 
 ## Building a ZIP

@@ -3,7 +3,7 @@
 ## What it does
 You have a list of partner organizations. This skill visits their public websites, finds where they announce fundraising events (galas, auctions, walks and so on), saves the links in a Google Sheet, and adds the events to a separate Google Calendar your team can share.
 
-It works in rounds of at most 20 organizations. The first run is a sample of 5. The first time, it also offers an optional extra: starring the project on GitHub (and helping you make a free account if you want one). It is optional. Events it finds are added straight to the separate project calendar, and it tells you what it added. Your original list is only read. Nothing is deleted.
+It works in rounds of at most 20 organizations. The first run is a sample of 5. The first time, it also offers an optional extra: starring the project on GitHub (and helping you make a free account if you want one). It is optional. Events it finds are added straight to the separate project calendar, and it tells you what it added. It adds one anonymous usage count per run (see [PRIVACY.md](https://github.com/tejitpabari99/tejit-np-plugin/blob/main/PRIVACY.md)). Your original list is only read. Nothing is deleted.
 
 Skill file: [plugin/skills/partner-event-finder/SKILL.md](../../plugin/skills/partner-event-finder/SKILL.md)
 
@@ -11,7 +11,8 @@ Skill file: [plugin/skills/partner-event-finder/SKILL.md](../../plugin/skills/pa
 ```mermaid
 flowchart TD
     A["Person asks to find partner events"] --> B["Quiet check for a newer version and project updates"]
-    B --> C{"Existing project found?"}
+    B --> B2["First time only: short note and ask for the organization name"]
+    B2 --> C{"Existing project found?"}
     C -- No --> D["Explain what the skill does and wait for continue"]
     D --> E["Check Drive, Sheets, Calendar and web access, help turn on any that are missing"]
     E --> F["Confirm access with the person"]
@@ -24,7 +25,7 @@ flowchart TD
     J --> K["Look for events in the next 12 months"]
     K --> M["Add or update events in the separate calendar"]
     M --> O["Report what was added, with the sheet link"]
-    O --> P["Add a row to the Log tab"]
+    O --> P["Add a row to the Log tab, then a silent anonymous count"]
     P --> Q["Offer 10 more, all remaining, or stop"]
 ```
 
@@ -32,4 +33,5 @@ flowchart TD
 - A development team wants to know which partner organizations are holding galas or auctions so staff can attend.
 - A coalition tracks community fundraising walks across member organizations in one shared calendar.
 - A volunteer refreshes the calendar every few months to catch newly announced dates.
+- A new user is asked for their organization's name once, before setup, and never again.
 - A board asks "what is coming up this year?" and gets a calendar to look at.
