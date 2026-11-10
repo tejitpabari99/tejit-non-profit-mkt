@@ -22,6 +22,22 @@
 
 ---
 
+## 0.2.0 (2026-11-10)
+
+A new skill that guides you through installing ready-made automations, starting with the Auto Emailer.
+
+**What's new for users**
+- New skill `install-automation`: pick an automation and your AI assistant walks you through its installation guide one step at a time, in plain words.
+- First automation: Auto Emailer, which sends personalized emails from a Google Sheet using a Gmail draft.
+- The welcome message and "what can you do?" now show two groups: helpers inside the plugin and automations you install with a guide.
+
+**Project changes**
+- none
+
+**Maintainer notes**
+- Automations live in https://github.com/tejitpabari99/tejit-np-auto. The skill fetches its README and each `INSTALLATION_GUIDE.md`, with `references/catalog.md` as the bundled fallback. Add a row there for each new automation.
+- Skills: `install-automation` 0.2.0 (new), `start` 0.2.0, `partner-event-finder` 0.1.2, `share-feedback` 0.1.2.
+
 ## 0.1.2 (2026-11-07)
 
 Warmer GitHub step, a clearer setup order, events added straight to the calendar, and a more private feedback form.

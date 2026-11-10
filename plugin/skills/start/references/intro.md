@@ -15,7 +15,7 @@
 > Tools for nonprofits: small, guided helpers that take repetitive work off your team's plate, so staff and volunteers can spend more time on your mission. They are made by a volunteer, they cost nothing extra to use, and every step is explained before it happens.
 >
 > **Skills available:**
-> <list: skill name and one line each>
+> <list: skill name and one line each, in two groups: helpers inside this plugin, and automations you install with a guide>
 >
 > **Which one would you like to set up?**
 > <suggest the only/best one>
