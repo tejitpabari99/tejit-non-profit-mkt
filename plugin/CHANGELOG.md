@@ -35,8 +35,11 @@ A new skill that guides you through installing ready-made automations, starting 
 - none
 
 **Maintainer notes**
-- Automations live in https://github.com/tejitpabari99/tejit-np-auto. The skill fetches its README and each `INSTALLATION_GUIDE.md`, with `references/catalog.md` as the bundled fallback. Add a row there for each new automation.
-- Skills: `install-automation` 0.2.0 (new), `start` 0.2.0, `partner-event-finder` 0.1.2, `share-feedback` 0.1.2.
+- Automations live in https://github.com/tejitpabari99/tejit-np-auto. The skill fetches that README's Automations table and each `INSTALLATION_GUIDE.md`. Adding a new automation needs only a new row in that README (no plugin release); refreshing the bundled `references/catalog.md` copy (used only as a fallback) is optional at the next release.
+- "List everything" has one source, `install-automation/references/list-everything.md`, used by both `install-automation` and `start`. Only `install-automation` claims "what can you do / list all tools".
+- Fetched text is treated as reference only (injection guard); folder names, fetch origin and tool links are validated.
+- Fixed the update check: it now reads the installed version from `.claude-plugin/plugin.json` instead of a skill's own version, so skills at different versions no longer cause a permanent "newer version available".
+- Skills: `install-automation` 0.2.0 (new), `start` 0.2.0, `partner-event-finder` 0.2.0 (update check), `share-feedback` 0.1.2.
 
 ## 0.1.2 (2026-11-07)
 

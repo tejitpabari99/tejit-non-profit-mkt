@@ -1,7 +1,7 @@
 # start
 
 ## What it does
-The friendly front door. It explains in plain words what a plugin and a skill are, shows where the plugin came from, lists the skills, and hands off to the one you pick. After you agree to the skill's access step, it saves a small note in Google Drive recording where the plugin came from.
+The friendly front door. It explains in plain words what a plugin and a skill are, shows where the plugin came from, lists the helpers and the automations (using the same list as `install-automation`), and hands off to the one you pick. After you agree to the skill's access step, it saves a small note in Google Drive recording where the plugin came from.
 
 Skill file: [plugin/skills/start/SKILL.md](../../plugin/skills/start/SKILL.md)
 
@@ -19,5 +19,5 @@ flowchart TD
 
 ## Use cases
 - A volunteer opens the tools for the first time and wants to know what is available.
-- A staff member forgot the skill name and asks "what can you do?".
+- A staff member forgot the skill name and asks "what can you do?" later (answered by `install-automation`).
 - A team lead wants to see where the plugin came from before trusting it.
