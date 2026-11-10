@@ -13,7 +13,12 @@ Nonprofit staff and volunteers who are not technical. Every step is explained in
 ## Skills
 - **`start`**: Introduces the toolkit and helps you pick a skill.
 - **`partner-event-finder`**: Finds partner fundraising events and adds them to a shared Google Calendar.
+- **`install-automation`**: Guides you through installing an automation, one step at a time.
 - **`share-feedback`**: Reports a problem or shares an idea so the tools can get better.
+
+## Automations
+Small standalone tools, each with an installation guide, kept in [tejit-np-auto](https://github.com/tejitpabari99/tejit-np-auto). Ask the `install-automation` skill to walk you through one.
+- **Auto Emailer**: Sends personalized emails from a Google Sheet, using a Gmail draft.
 
 ## Learn more
 - [Illustrated guide for nonprofits (PDF)](docs/nonprofit-guide.pdf)

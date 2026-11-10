@@ -5,7 +5,7 @@ Goal: make sure the person works with the newest version and that their saved pr
 Never show the person version numbers, file names, or technical detail. High level only.
 
 ## 1. Gather (silently)
-- **Installed version:** this skill's frontmatter `metadata.version` (same as the plugin's `plugin.json` version).
+- **Installed version:** the plugin's `version` from `../../.claude-plugin/plugin.json` (relative to this skill's folder). Do not use a skill's own `metadata.version`; skills change on their own schedule. If it cannot be read, use the newest version heading in the plugin's `CHANGELOG.md`; if neither can be read, skip this step quietly.
 - **Project version:** `plugin_version` in the project's `metadata.txt` (if a project exists). Missing = created by a test build before 0.1.0.
 - **Source:** `plugin_source` in the root `metadata.txt` (Drive folder `tejit-np-plugin`), else the plugin's `repository` field. If it is a GitHub address, the newest files are readable at `https://raw.githubusercontent.com/<owner>/<repo>/main/`.
 

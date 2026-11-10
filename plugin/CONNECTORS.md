@@ -6,6 +6,7 @@ Each skill only checks and asks for the connections it needs.
 |---|---|---|---|---|---|---|
 | `start` | not needed to read; used to save the source note | no | no | to check for a newer version (optional) | no | no |
 | `partner-event-finder` | yes | yes | yes | yes | optional | no |
+| `install-automation` | no | no | no | to fetch the latest guide | no | no |
 | `share-feedback` | no | no | no | no | optional | optional |
 
 **What they are used for (Partner Event Finder)**

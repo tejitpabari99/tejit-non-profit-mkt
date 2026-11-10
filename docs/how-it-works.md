@@ -12,6 +12,7 @@ tejit-np-plugin/                   (repo root)
 │   │   │                          optional GitHub step and account guide
 │   │   ├── partner-event-finder/  SKILL.md router, prompts/, templates/,
 │   │   │                          references/, scripts/
+│   │   ├── install-automation/    SKILL.md, references/catalog.md
 │   │   └── share-feedback/        SKILL.md, report format
 │   ├── guides/                    short how-to pages for staff
 │   ├── CHANGELOG.md, CONNECTORS.md
