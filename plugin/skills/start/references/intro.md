@@ -1,4 +1,4 @@
-# Intro message (send as a normal chat message, then list the skills and ask)
+# Intro message (send as a normal chat message; the skills list and question come later, see below)
 
 > **Welcome! I'm Tejit's Non Profit Tools, a plugin for nonprofits, created by Tejit Pabari.**
 >
@@ -14,11 +14,15 @@
 > **What this is:**
 > Tools for nonprofits: small, guided helpers that take repetitive work off your team's plate, so staff and volunteers can spend more time on your mission. They are made by a volunteer, they cost nothing extra to use, and every step is explained before it happens.
 >
+
+## Skills part (send only after the identity check is settled)
 > **Skills available:**
 > <list: skill name and one line each, two groups, produced by `../../install-automation/references/list-everything.md`: helpers inside this plugin, and automations you install with a guide>
 >
 > **Which one would you like to set up?**
 > <suggest the only/best one>
+
+If the identity is missing, the welcome is followed by the identity notice and question on their own; this skills part waits until they have answered. If the identity is known, send it right after the welcome.
 
 ## Plugin source (<plugin source link>)
 The source is where the plugin was installed from. Work it out, in this order:
