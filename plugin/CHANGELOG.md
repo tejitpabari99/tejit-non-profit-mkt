@@ -22,6 +22,25 @@
 
 ---
 
+## 0.3.0 (2026-11-10)
+
+The tools now count their use anonymously and ask for your organization's name once.
+
+**What's new for users**
+- The first time you open `start`, `partner-event-finder` or `install-automation`, you see one short note and are asked for your organization's name, once. After that you are not asked again.
+- Your personal details stay anonymous. The note links to the new Terms and Conditions (`TERMS.md`) and Privacy (`PRIVACY.md`) pages, which list exactly what is and is not collected.
+- `share-feedback` is unchanged and never asks for anything.
+
+**Project changes**
+- none
+
+**Maintainer notes**
+- New shared recipes in `skills/start/references/`: `identity.md` (notice, organization name, anonymous code, saved in memory and, when Drive is already connected, in the root `metadata.txt` keys `org`, `uid`, `consent_shown`) and `usage-ping.md` (one silent web request, single try). The identity lines are written by the identity check, not the update check, so there are no project changes.
+- Pings: `setup_done` (identity check), `batch_done` and `step_failed` (partner-event-finder `prompts/05-run-log.md`), `guide_started` and `step_failed` (install-automation). No ping is sent unless the notice was shown.
+- New checks in `validate_plugin.py` for the legal files, both recipes, the call sites and that `share-feedback` stays out. Docs, `CONNECTORS.md` and README updated.
+- Merge only after the `/ping` endpoint is live.
+- Skills: `start` 0.3.0, `partner-event-finder` 0.3.0, `install-automation` 0.3.0, `share-feedback` 0.1.2.
+
 ## 0.2.0 (2026-11-10)
 
 A new skill that guides you through installing ready-made automations, starting with the Auto Emailer.
