@@ -4,4 +4,4 @@ Source: https://github.com/tejitpabari99/tejit-np-auto . Used only when the live
 
 | Automation | What it does | Guide | Open the tool |
 |---|---|---|---|
-| `auto-emailer` Auto Emailer (NGO Mailer) | Sends personalized emails from a Google Sheet, using a Gmail draft with {{Column Name}} placeholders. | [Installation guide](https://github.com/tejitpabari99/tejit-np-auto/blob/main/auto-emailer/INSTALLATION_GUIDE.md) | [Open](https://script.google.com/macros/s/AKfycbw3OyqV-_Q4ubNhc4Rwjz0YeS3lmKdCaITJx3rsnp9CFzLpMvWW2XilI9LNTHIXsmle/exec) |
+| `auto-emailer` Auto Emailer (NGO Mailer) | Sends personalized emails from a Google Sheet, using a Gmail draft with {{Column Name}} placeholders. | [Installation guide](https://github.com/tejitpabari99/tejit-np-auto/blob/main/auto-emailer/INSTALLATION_GUIDE.md) | [Open](https://go.tejitpabari.com/tejit-np-auto-emailer) |
