@@ -28,7 +28,7 @@ The tools now count their use anonymously and ask for your organization's name o
 
 **What's new for users**
 - The first time you open `start`, `partner-event-finder` or `install-automation`, you see one short note and are asked for your organization's name, once. After that you are not asked again.
-- Your personal details stay anonymous. The note links to the new Terms and Conditions (`TERMS.md`) and Privacy (`PRIVACY.md`) pages, which list exactly what is and is not collected.
+- The onboarding note says the plugin collects anonymized usage metrics for your organization (no PII or user data). The note links to the Privacy Policy (`PRIVACY.md`) and Terms and Conditions (`TERMS.md`) pages, which list exactly what is and is not collected.
 - `share-feedback` is unchanged and never asks for anything.
 
 **Project changes**

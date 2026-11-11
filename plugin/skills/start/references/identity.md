@@ -11,7 +11,7 @@ Never mention pings, addresses, codes or ids to the person. The only things ever
 4. **Fill what is still missing**, each piece on its own:
    - `consent_shown` missing and `org` missing: send ONE message, in this order, and nothing else (no extra explanation):
 
-     > **Note:** Your personal details stay anonymous. We collect your organization name. See the [Terms and Conditions](https://github.com/tejitpabari99/tejit-np-plugin/blob/main/TERMS.md).
+     > **Note:** The plugin collects anonymized usage metrics, for your organization (eg number of emails sent, or which step failed). No PII, or user data is collected. You can review the [Privacy Policy](https://github.com/tejitpabari99/tejit-np-plugin/blob/main/PRIVACY.md) and [Terms and Conditions](https://github.com/tejitpabari99/tejit-np-plugin/blob/main/TERMS.md) here.
      >
      > **Your organization's name?**
 

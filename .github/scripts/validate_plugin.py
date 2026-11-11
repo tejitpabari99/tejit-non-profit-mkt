@@ -227,7 +227,11 @@ def check_links():
 # ---- Usage pings (identity, consent, legal docs) ----------------------------
 TERMS_URL = REPO_URL + "/blob/main/TERMS.md"
 PRIVACY_URL = REPO_URL + "/blob/main/PRIVACY.md"
-NOTICE = "Your personal details stay anonymous. We collect your organization name."
+NOTICE = (
+    "The plugin collects anonymized usage metrics, for your organization "
+    "(eg number of emails sent, or which step failed). "
+    "No PII, or user data is collected."
+)
 REFS = PLUGIN / "skills" / "start" / "references"
 # Each group of usage-ping checks is switched on by the task that satisfies it,
 # so every commit stays green. Pass --enforce-all to run all groups now.
@@ -242,13 +246,15 @@ def identity_problems(text):
         out.append(f"missing the exact notice text {NOTICE!r}")
     if f"({TERMS_URL})" not in text:
         out.append(f"notice must link to {TERMS_URL}")
+    if f"({PRIVACY_URL})" not in text:
+        out.append(f"notice must link to {PRIVACY_URL}")
     if "uuid.uuid4().hex[:8]" not in text:
         out.append("missing the uid Python snippet (uuid.uuid4().hex[:8])")
     if not re.search(r"8 lowercase hex", text):
         out.append("missing the made-up '8 lowercase hex' fallback")
     if "usage-ping.md" not in text:
         out.append("must reference usage-ping.md (setup_done ping)")
-    for bad in ("may be listed", "metrics"):
+    for bad in ("may be listed",):
         if bad in text.lower():
             out.append(f"must not contain {bad!r}")
     return out
