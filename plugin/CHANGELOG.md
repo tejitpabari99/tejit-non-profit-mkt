@@ -22,6 +22,19 @@
 
 ---
 
+## 0.3.1 (2026-11-11)
+
+The Auto Emailer tool link now uses a short, stable address.
+
+**What's new for users**
+- The Auto Emailer link shown by `install-automation` is now a short `go.tejitpabari.com` address that always points to the current version of the tool.
+
+**Project changes**
+- none
+
+**Maintainer notes**
+- `install-automation` now also shows tool links starting with `https://go.tejitpabari.com/`. The fallback `references/catalog.md` Auto Emailer row uses `https://go.tejitpabari.com/tejit-np-auto-emailer` (a redirect to the current Apps Script deployment). Companion change in tejit-np-auto.
+
 ## 0.3.0 (2026-11-10)
 
 The tools now count their use anonymously and ask for your organization's name once.
