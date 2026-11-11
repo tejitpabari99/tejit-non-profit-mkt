@@ -46,5 +46,16 @@ tejit-np-plugin/
 - Events go only into the separate calendar you pick. Nothing is ever deleted.
 - A page the tool cannot read is reported, never counted as "no events".
 
+## Usage metrics and privacy
+`start`, `partner-event-finder` and `install-automation` count their use anonymously. The first time you open any of them, they show one short note and ask for your organization's name (once). `share-feedback` never asks and never sends a count.
+
+What is collected: tool and version, event type, test-or-real flag, organization name as typed (lowercased), a random code, counts, the failing step, the automation chosen, UTC time, a run code, and which AI or app sent it (a category only).
+
+What is never collected: IP address, country, raw user-agent text, names, emails, partner lists, events, or file contents.
+
+Where your identity is saved: in your AI assistant's memory when it has one, and in the root `metadata.txt` in your Drive folder `tejit-np-plugin` when Drive is already connected. With a saved identity you are never asked again. If neither is available, you are asked again next time.
+
+A count is sent silently by one short web request, and a failed or blocked request never affects a run. See [TERMS.md](https://github.com/tejitpabari99/tejit-np-plugin/blob/main/TERMS.md) and [PRIVACY.md](https://github.com/tejitpabari99/tejit-np-plugin/blob/main/PRIVACY.md).
+
 ## Honest limits
 It can only find what partners publish. Facebook and Instagram are not read in this version. It cannot create a calendar for you; the skill shows you how (one minute).

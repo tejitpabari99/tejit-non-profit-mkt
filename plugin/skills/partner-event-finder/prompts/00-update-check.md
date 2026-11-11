@@ -27,7 +27,7 @@ If a project exists and its `plugin_version` is older than the installed version
 1. Say: "Checking for improvements to your project… I found some. Applying them now." (high level only)
 2. Read the plugin's `CHANGELOG.md` (at the plugin root; if unavailable read `plugin/CHANGELOG.md` from the source). Collect every version section newer than the project version, oldest first.
 3. In each section, read **Project changes** only. Perform the items that relate to Partner Event Finder (for example adding a column to the project sheet, filling a new field), in order, before the task. Only change files this plugin created. Never delete data; if something is unclear or risky, ask first.
-4. Write the new `plugin_version` (and `plugin_source`) into the project `metadata.txt` and the root `metadata.txt` (create-new then trash-old rule).
+4. Write the new `plugin_version` (and `plugin_source`) into the project `metadata.txt` and the root `metadata.txt` (create-new then trash-old rule). Keep every other key when rewriting; the root `metadata.txt` must keep `org`, `uid` and `consent_shown` (see `../../start/references/root-metadata.md`).
 5. Tell the person: "All up to date. Here's what's new for you:" with one short bullet per change in everyday words.
 
 If nothing needed doing, continue silently.

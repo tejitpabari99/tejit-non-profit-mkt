@@ -224,6 +224,114 @@ def check_links():
                 err(f"{f.relative_to(ROOT)}: broken link {target}")
 
 
+# ---- Usage pings (identity, consent, legal docs) ----------------------------
+TERMS_URL = REPO_URL + "/blob/main/TERMS.md"
+PRIVACY_URL = REPO_URL + "/blob/main/PRIVACY.md"
+NOTICE = (
+    "The plugin collects anonymized usage metrics, for your organization "
+    "(eg number of emails sent, or which step failed). "
+    "No PII, or user data is collected."
+)
+REFS = PLUGIN / "skills" / "start" / "references"
+# Each group of usage-ping checks is switched on by the task that satisfies it,
+# so every commit stays green. Pass --enforce-all to run all groups now.
+ENFORCED = {"legal", "recipes", "identity_entry", "install", "runlog"}
+ALL_GROUPS = ["legal", "recipes", "identity_entry", "install", "runlog", "feedback"]
+
+
+def identity_problems(text):
+    """Problems in identity.md text (pure, so it can be tested on fixtures)."""
+    out = []
+    if NOTICE not in text:
+        out.append(f"missing the exact notice text {NOTICE!r}")
+    if f"({TERMS_URL})" not in text:
+        out.append(f"notice must link to {TERMS_URL}")
+    if f"({PRIVACY_URL})" not in text:
+        out.append(f"notice must link to {PRIVACY_URL}")
+    if "uuid.uuid4().hex[:8]" not in text:
+        out.append("missing the uid Python snippet (uuid.uuid4().hex[:8])")
+    if not re.search(r"8 lowercase hex", text):
+        out.append("missing the made-up '8 lowercase hex' fallback")
+    if "usage-ping.md" not in text:
+        out.append("must reference usage-ping.md (setup_done ping)")
+    for bad in ("may be listed",):
+        if bad in text.lower():
+            out.append(f"must not contain {bad!r}")
+    return out
+
+
+def usage_ping_problems(text):
+    """Problems in usage-ping.md text (pure, so it can be tested on fixtures)."""
+    out = []
+    if "https://ping.tejitpabari.com/ping?" not in text:
+        out.append("missing the ping URL template")
+    for param in ("origin=", "x_run", "t="):
+        if param not in text:
+            out.append(f"URL template/recipe must mention {param!r}")
+    if re.search(r"\breason\b", text, re.I):
+        out.append("must not mention 'reason' (the plugin never sends it)")
+    for origin in ("claude", "gemini", "gpt"):
+        if f"`{origin}`" not in text:
+            out.append(f"missing origin value `{origin}`")
+    return out
+
+
+def _read(path):
+    return path.read_text(encoding="utf-8") if path.is_file() else None
+
+
+def _refs(path, *needles):
+    text = _read(path)
+    rel = path.relative_to(ROOT)
+    if text is None:
+        err(f"{rel}: is missing")
+        return
+    for n in needles:
+        if n not in text:
+            err(f"{rel}: must reference {n}")
+
+
+def check_usage_pings(groups):
+    sk = PLUGIN / "skills"
+    if "legal" in groups:
+        for name in ("TERMS.md", "PRIVACY.md"):
+            if not (ROOT / name).is_file():
+                err(f"{name} is missing at the repo root")
+        readme = _read(ROOT / "README.md") or ""
+        for url in (TERMS_URL, PRIVACY_URL):
+            if url not in readme:
+                err(f"README.md must link to {url}")
+        terms, privacy = _read(ROOT / "TERMS.md"), _read(ROOT / "PRIVACY.md")
+        if terms is not None and "PRIVACY.md" not in terms:
+            err("TERMS.md must link to PRIVACY.md")
+        if privacy is not None and "TERMS.md" not in privacy:
+            err("PRIVACY.md must link to TERMS.md")
+    if "recipes" in groups:
+        ident, ping = _read(REFS / "identity.md"), _read(REFS / "usage-ping.md")
+        if ident is None:
+            err("plugin/skills/start/references/identity.md is missing")
+        else:
+            for p in identity_problems(ident):
+                err(f"identity.md: {p}")
+        if ping is None:
+            err("plugin/skills/start/references/usage-ping.md is missing")
+        else:
+            for p in usage_ping_problems(ping):
+                err(f"usage-ping.md: {p}")
+    if "identity_entry" in groups:
+        _refs(sk / "start" / "SKILL.md", "identity.md")
+        _refs(sk / "partner-event-finder" / "SKILL.md", "identity.md")
+    if "install" in groups:
+        _refs(sk / "install-automation" / "SKILL.md", "identity.md", "usage-ping.md")
+    if "runlog" in groups:
+        _refs(sk / "partner-event-finder" / "prompts" / "05-run-log.md", "usage-ping.md")
+    if "feedback" in groups:
+        for f in (sk / "share-feedback").rglob("*.md"):
+            t = f.read_text(encoding="utf-8")
+            if "identity.md" in t or "usage-ping.md" in t:
+                err(f"{f.relative_to(ROOT)}: share-feedback must not use identity or pings")
+
+
 def check_base(base, pj):
     if git("rev-parse", "--verify", base).returncode != 0:
         err(f"--base ref {base!r} not found")
@@ -271,6 +379,8 @@ def check_base(base, pj):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--base")
+    ap.add_argument("--enforce-all", action="store_true",
+                    help="run every usage-ping check group, even ones not yet enabled")
     a = ap.parse_args()
     pj = check_json_and_names()
     check_skills()
@@ -283,6 +393,7 @@ def main():
     check_feedback_form()
     check_feedback_email()
     check_links()
+    check_usage_pings(set(ALL_GROUPS) if a.enforce_all else ENFORCED | {"feedback"})
     if a.base and pj:
         check_base(a.base, pj)
     if errors:
